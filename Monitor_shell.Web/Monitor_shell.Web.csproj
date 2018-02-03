@@ -102,8 +102,8 @@
     <Content Include="UI_Monitor\images\page\DCS\zc_nxjc_qtx_tys\zc_nxjc_air pollutant emissions.png" />
     <Content Include="UI_Monitor\images\page\zc_nxjc_lpsc_lpsf.png" />
     <Content Include="UI_Monitor\images\page\zc_nxjc_ychc_ndf.png" />
-    <Content Include="UI_Monitor\js\common\Airpollutantemissions.js" />
     <Content Include="UI_Monitor\js\common\Default.js" />
+    <Content Include="UI_Monitor\js\common\SumProcessStatistic.js" />
     <Content Include="UI_Monitor\js\page\PowerBar.js" />
     <Content Include="UI_Monitor\js\page\PVFClock.js" />
     <Content Include="js\common\components\WindowsDialog.js" />
@@ -1795,6 +1795,15 @@
     <Content Include="UI_Monitor\ProcessEnergyMonitor\MonitorShell\MultiMonitorShell.aspx" />
     <Content Include="UI_Monitor\ProcessEnergyMonitor\MonitorShell\test.aspx" />
     <Content Include="UI_Monitor\ProcessEnergyMonitor\MonitorShell\WebForm1.aspx" />
+    <Content Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_szsc_szsf\zc_nxjc_szsc_szsf_cementmill01.aspx" />
+    <Content Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_szsc_szsf\zc_nxjc_szsc_szsf_cementmill02.aspx" />
+    <Content Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_ychc_yfcf\zc_nxjc_ychc_yfcf.aspx" />
+    <Content Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_ychc_yfcf\zc_nxjc_ychc_yfcf_cementmill01.aspx" />
+    <Content Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_ychc_yfcf\zc_nxjc_ychc_yfcf_cementmill02.aspx" />
+    <Content Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_ychc_yfcf\zc_nxjc_ychc_yfcf_cementmill03.aspx" />
+    <Content Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_ychc_yfcf\zc_nxjc_ychc_yfcf_cementmill04.aspx" />
+    <Content Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_ychc_yfcf\zc_nxjc_ychc_yfcf_clinker01_sheng.aspx" />
+    <Content Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_ychc_yfcf\zc_nxjc_ychc_yfcf_clinker01_shu.aspx" />
     <Content Include="UI_Monitor\TrendTool\MultiTrendlineRenderer.aspx" />
     <Content Include="UI_Monitor\TrendTool\TrendlineRenderer.aspx" />
     <Content Include="Web.config">
@@ -1853,6 +1862,69 @@
     <Compile Include="UI_Monitor\ProcessEnergyMonitor\MonitorShell\WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_szsc_szsf\zc_nxjc_szsc_szsf_cementmill01.aspx.cs">
+      <DependentUpon>zc_nxjc_szsc_szsf_cementmill01.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_szsc_szsf\zc_nxjc_szsc_szsf_cementmill01.aspx.designer.cs">
+      <DependentUpon>zc_nxjc_szsc_szsf_cementmill01.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_szsc_szsf\zc_nxjc_szsc_szsf_cementmill02.aspx.cs">
+      <DependentUpon>zc_nxjc_szsc_szsf_cementmill02.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_szsc_szsf\zc_nxjc_szsc_szsf_cementmill02.aspx.designer.cs">
+      <DependentUpon>zc_nxjc_szsc_szsf_cementmill02.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_ychc_yfcf\zc_nxjc_ychc_yfcf.aspx.cs">
+      <DependentUpon>zc_nxjc_ychc_yfcf.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_ychc_yfcf\zc_nxjc_ychc_yfcf.aspx.designer.cs">
+      <DependentUpon>zc_nxjc_ychc_yfcf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_ychc_yfcf\zc_nxjc_ychc_yfcf_cementmill01.aspx.cs">
+      <DependentUpon>zc_nxjc_ychc_yfcf_cementmill01.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_ychc_yfcf\zc_nxjc_ychc_yfcf_cementmill01.aspx.designer.cs">
+      <DependentUpon>zc_nxjc_ychc_yfcf_cementmill01.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_ychc_yfcf\zc_nxjc_ychc_yfcf_cementmill02.aspx.cs">
+      <DependentUpon>zc_nxjc_ychc_yfcf_cementmill02.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_ychc_yfcf\zc_nxjc_ychc_yfcf_cementmill02.aspx.designer.cs">
+      <DependentUpon>zc_nxjc_ychc_yfcf_cementmill02.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_ychc_yfcf\zc_nxjc_ychc_yfcf_cementmill03.aspx.cs">
+      <DependentUpon>zc_nxjc_ychc_yfcf_cementmill03.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_ychc_yfcf\zc_nxjc_ychc_yfcf_cementmill03.aspx.designer.cs">
+      <DependentUpon>zc_nxjc_ychc_yfcf_cementmill03.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_ychc_yfcf\zc_nxjc_ychc_yfcf_cementmill04.aspx.cs">
+      <DependentUpon>zc_nxjc_ychc_yfcf_cementmill04.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_ychc_yfcf\zc_nxjc_ychc_yfcf_cementmill04.aspx.designer.cs">
+      <DependentUpon>zc_nxjc_ychc_yfcf_cementmill04.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_ychc_yfcf\zc_nxjc_ychc_yfcf_clinker01_sheng.aspx.cs">
+      <DependentUpon>zc_nxjc_ychc_yfcf_clinker01_sheng.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_ychc_yfcf\zc_nxjc_ychc_yfcf_clinker01_sheng.aspx.designer.cs">
+      <DependentUpon>zc_nxjc_ychc_yfcf_clinker01_sheng.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_ychc_yfcf\zc_nxjc_ychc_yfcf_clinker01_shu.aspx.cs">
+      <DependentUpon>zc_nxjc_ychc_yfcf_clinker01_shu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_ychc_yfcf\zc_nxjc_ychc_yfcf_clinker01_shu.aspx.designer.cs">
+      <DependentUpon>zc_nxjc_ychc_yfcf_clinker01_shu.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI_Monitor\TrendTool\MultiTrendlineRenderer.aspx.cs">
       <DependentUpon>MultiTrendlineRenderer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1873,9 +1945,9 @@
     <Content Include="lib\pllib\syntaxhighlighter\LGPL-LICENSE" />
     <Content Include="lib\pllib\syntaxhighlighter\MIT-LICENSE" />
     <Content Include="UI_Monitor\css\common\mymonitor.css.orig" />
-    <None Include="Properties\PublishProfiles\Monitor_shell.pubxml" />
     <None Include="Properties\PublishProfiles\release.pubxml" />
     <None Include="Properties\PublishProfiles\shell.pubxml" />
+    <None Include="Properties\PublishProfiles\test.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

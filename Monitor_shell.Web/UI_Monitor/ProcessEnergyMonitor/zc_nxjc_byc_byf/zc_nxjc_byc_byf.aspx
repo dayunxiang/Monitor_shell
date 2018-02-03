@@ -428,35 +428,35 @@
         <%--工序电耗（所有产线的该工序电量之和除以所有产线该工序产量之和） --%>
         <table class="mytable" style="position: absolute; top: 617px; left: 88px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf>rawMaterialsPreparation_ElectricityConsumption>SumProcessClass"></span></td>
+                <td><span id="zc_nxjc_byc_byf>rawMaterialsPreparation_ElectricityConsumption>SumProcessClass" class="SumProcess"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf>clinkerPreparation_ElectricityConsumption>SumProcessClass"></span></td>
+                <td><span id="zc_nxjc_byc_byf>clinkerPreparation_ElectricityConsumption>SumProcessClass" class="SumProcess"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf>cementPreparation_ElectricityConsumption>SumProcessClass" ></span></td>
+                <td><span id="zc_nxjc_byc_byf>cementPreparation_ElectricityConsumption>SumProcessClass" class="SumProcess"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 616px; left: 161px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf>rawMaterialsPreparation_ElectricityConsumption>SumProcessDay" ></span></td>
+                <td><span id="zc_nxjc_byc_byf>rawMaterialsPreparation_ElectricityConsumption>SumProcessDay" class="SumProcess"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf>clinkerPreparation_ElectricityConsumption>SumProcessDay" ></span></td>
+                <td><span id="zc_nxjc_byc_byf>clinkerPreparation_ElectricityConsumption>SumProcessDay" class="SumProcess"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf>cementPreparation_ElectricityConsumption>SumProcessDay"></span></td>
+                <td><span id="zc_nxjc_byc_byf>cementPreparation_ElectricityConsumption>SumProcessDay" class="SumProcess"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 616px; left: 233px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf>rawMaterialsPreparation_ElectricityConsumption>SumProcessMonth" ></span></td>
+                <td><span id="zc_nxjc_byc_byf>rawMaterialsPreparation_ElectricityConsumption>SumProcessMonth" class="SumProcess"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf>clinkerPreparation_ElectricityConsumption>SumProcessMonth" ></span></td>
+                <td><span id="zc_nxjc_byc_byf>clinkerPreparation_ElectricityConsumption>SumProcessMonth" class="SumProcess"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf>cementPreparation_ElectricityConsumption>SumProcessMonth" ></span></td>
+                <td><span id="zc_nxjc_byc_byf>cementPreparation_ElectricityConsumption>SumProcessMonth" class="SumProcess"></span></td>
             </tr>
         </table>
         <%--生料均化--%>
@@ -544,6 +544,7 @@
     <script src="/UI_Monitor/js/common/RunningState.js"></script>
     <script src="/UI_Monitor/js/common/AmmeterStatistic.js"></script>
     <script src="/UI_Monitor/js/common/ComprehensiveStatistic.js"></script>
+    <script src="/UI_Monitor/js/common/SumProcessStatistic.js"></script>
     <script src="/UI_Monitor/js/common/DisplayName.js"></script>
  <script src="/lib/ealib/extend/easyUI.WindowsOverrange.js"></script>   
     <script>

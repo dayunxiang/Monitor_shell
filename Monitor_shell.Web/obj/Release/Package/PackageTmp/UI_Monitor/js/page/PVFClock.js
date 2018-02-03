@@ -112,7 +112,7 @@ function drawScene(canvas, ctx, centerPosX, centerPosY, clockRadius) { // main d
     var year = date.getFullYear();
     var month = date.getMonth() + 1 >= 10 ? (date.getMonth() + 1).toString() : '0' + (date.getMonth() + 1).toString();
     var day = date.getDate() >= 10 ? (date.getDate()).toString() : '0' + (date.getDate()).toString();
-    var m_AmpmText = FullHours > 12 ? "AM" : "PM";
+    var m_AmpmText = FullHours <= 12 ? "AM" : "PM";
 
     //ctx.font = 'bold 144px consolas';
     //ctx.textAlign = 'left';

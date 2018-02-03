@@ -110,8 +110,8 @@ namespace Monitor_shell.Service.ProcessEnergyMonitor.MonitorShell
                     if (m_VariableQuantityArray.Contains(sourceDt.Rows[i]["VariableId"].ToString()))
                     {
                         m_SumProcessValueClass = m_SumProcessValueClass + (decimal)sourceDt.Rows[i]["CumulantClass"];
-                        m_SumProcessValueDay = m_SumProcessValueClass + (decimal)sourceDt.Rows[i]["CumulantDay"];
-                        m_SumProcessValueMonth = m_SumProcessValueClass + (decimal)sourceDt.Rows[i]["CumulantMonth"];
+                        m_SumProcessValueDay = m_SumProcessValueDay + (decimal)sourceDt.Rows[i]["CumulantDay"];
+                        m_SumProcessValueMonth = m_SumProcessValueMonth + (decimal)sourceDt.Rows[i]["CumulantMonth"];
                     }
                     if (sourceDt.Rows[i]["VariableId"].ToString() == "auxiliaryProduction_ElectricityQuantity")
                     {
@@ -216,6 +216,193 @@ namespace Monitor_shell.Service.ProcessEnergyMonitor.MonitorShell
             {
                 return null;
             }
+        }
+        /// <summary>
+        /// 增加分步电耗公式显示功能
+        /// </summary>
+        /// <param name="organizationId"></param>
+        /// <param name="variableId"></param>
+        /// <param name="statisticType"></param>
+        /// <param name="variableIds"></param>
+        /// <returns></returns>
+        public Standard_GB16780_2012.Model_CaculateValue GetSumProcessFormula(string organizationId, string variableId, string statisticType, string[] variableIds)
+        {
+            string m_StatisticType = "";
+            Standard_GB16780_2012.Model_CaculateValue m_Model_CaculateValue = new Standard_GB16780_2012.Model_CaculateValue();
+            switch (statisticType)
+            {
+                case "SumProcessMonth":
+                    m_StatisticType = "CumulantMonth";
+                    break;
+                case "SumProcessDay":
+                    m_StatisticType = "CumulantDay";
+                    break;
+                case "SumProcessClass":
+                    m_StatisticType = "CumulantClass";
+                    break;
+            }
+
+            Dictionary<string, string> m_VariableContrastDic = new Dictionary<string, string>();
+            string queryString = @"select B.OrganizationID as OrganizationId, B.LevelCode, B.LevelType from system_Organization A, system_Organization B
+                                        where A.OrganizationID = @OrganizationID
+                                        and B.LevelCode like A.LevelCode + '%'
+                                        and (B.Type = '熟料' or B.Type = '水泥磨')";
+            IList<SqlParameter> queryStringparameters = new List<SqlParameter>();
+            queryStringparameters.Add(new SqlParameter("@OrganizationID", organizationId));
+            //ParametersHelper.AddParamsCondition(sqlSourceBase, sourceparameters, variableIds);
+            DataTable m_DataTable_OrganizationId = _nxjcFactory.Query(queryString, queryStringparameters.ToArray());
+            List<string> m_OrganizationIds = new List<string>();
+            if (m_DataTable_OrganizationId != null)
+            {
+                for (int i = 0; i < m_DataTable_OrganizationId.Rows.Count; i++)
+                {
+                    m_OrganizationIds.Add(m_DataTable_OrganizationId.Rows[i]["OrganizationId"].ToString());
+                }
+            }
+            DataTable sourceDt = ParametersHelper.GetSumCDMBalanceEnergyValue(m_OrganizationIds, _nxjcFactory);
+            ////////////////////增加辅助电量的各班以及当日的值/////////////////
+            DataTable auxiliaryProductionDt = GetSumAuxiliaryProductionQuantity(m_OrganizationIds.ToArray());
+            ////////////////////////////////////////////////////////////////////
+
+            string m_OrganizationId = organizationId;//sourceDt.Rows[0]["OrganizationID"].ToString().Trim();
+            /////////////////////////分步电耗均摊辅助用电/////////////////////
+            string sqlTemplate = @"SELECT A.VariableId, A.ValueFormula, replace(A.VariableName,'电耗','分步电耗') as VariableName
+                                    FROM balance_Energy_Template AS A
+                                    WHERE (A.ValueType='ElectricityConsumption'
+                                    OR A.ValueType='CoalConsumption')
+                                    AND A.VariableId = '{0}'";
+            sqlTemplate = string.Format(sqlTemplate, variableId);
+            DataTable templateDt = _nxjcFactory.Query(sqlTemplate);
+            ////////////////////////增加电量和产量标签对照表///////////////////
+            string m_Sql_VariableContrast = @"select A.VariableId, A.Name
+                                                from material_MaterialDetail A 
+                                                group by A.VariableId, A.Name 
+                                                union all
+                                                select A.VariableId + '_ElectricityQuantity' as VariableId, A.Name + '电量' as Name
+                                                from formula_FormulaDetail A 
+                                                where A.LevelType <> 'MainMachine'
+                                                group by A.VariableId, A.Name";
+            DataTable m_VariableContrastTable = _nxjcFactory.Query(m_Sql_VariableContrast);
+            if (m_VariableContrastTable != null)
+            {
+                for (int i = 0; i < m_VariableContrastTable.Rows.Count; i++)
+                {
+                    if (!m_VariableContrastDic.ContainsKey(m_VariableContrastTable.Rows[i]["VariableId"].ToString()))
+                    {
+                        m_VariableContrastDic.Add(m_VariableContrastTable.Rows[i]["VariableId"].ToString(), m_VariableContrastTable.Rows[i]["Name"].ToString());
+                    }
+                }
+            }
+
+            ////////////////分步电耗增加辅助电量均摊功能////////////////////
+            List<string> m_VariableQuantityArray = new List<string>(variableIds.Length);
+            for (int i = 0; i < variableIds.Length; i++)
+            {
+                if (!m_VariableQuantityArray.Contains(variableIds[i].Replace("ElectricityConsumption", "ElectricityQuantity")))
+                {
+                    string m_VariableQuantityItem = variableIds[i].Replace("ElectricityConsumption", "ElectricityQuantity");
+                    m_VariableQuantityArray.Add(m_VariableQuantityItem);
+
+                    //形成公式
+                    Standard_GB16780_2012.Model_CaculateFactor m_CaculateFactorTemp = new Standard_GB16780_2012.Model_CaculateFactor();
+                    m_CaculateFactorTemp.FactorName = m_VariableQuantityItem;
+                    m_CaculateFactorTemp.FactorValue = 0.0m;
+                    m_Model_CaculateValue.CaculateFactor.Add(m_CaculateFactorTemp);
+                    if (m_VariableContrastDic.ContainsKey(m_VariableQuantityItem))
+                    {
+                        if (m_Model_CaculateValue.CaculateFormula == "")           //形成公式
+                        {
+                            m_Model_CaculateValue.CaculateFormula = "(" + m_VariableContrastDic[m_VariableQuantityItem];
+                        }
+                        else
+                        {
+                            m_Model_CaculateValue.CaculateFormula = m_Model_CaculateValue.CaculateFormula + "+" + m_VariableContrastDic[m_VariableQuantityItem];
+                        }
+                    }
+                    else
+                    {
+                        if (m_Model_CaculateValue.CaculateFormula == "")           //形成公式
+                        {
+                            m_Model_CaculateValue.CaculateFormula = "(" + m_VariableQuantityItem;
+                        }
+                        else
+                        {
+                            m_Model_CaculateValue.CaculateFormula = m_Model_CaculateValue.CaculateFormula + "+" + m_VariableQuantityItem;
+                        }
+                    }
+                }
+            }
+            if (templateDt != null && sourceDt != null)
+            {
+                string m_NumeratorVariable = "";
+                string m_DenominatorVariable = "";
+                if (templateDt.Rows.Count > 0)
+                {
+                    m_Model_CaculateValue.CaculateName = templateDt.Rows[0]["VariableName"].ToString();
+                    string m_ValueFormula = templateDt.Rows[0]["ValueFormula"].ToString().Replace("[", "").Replace("]", "");
+                    m_NumeratorVariable = m_ValueFormula.Substring(0, m_ValueFormula.IndexOf('/'));
+                    m_DenominatorVariable = m_ValueFormula.Substring(m_ValueFormula.IndexOf('/') + 1);
+
+                    m_Model_CaculateValue.CaculateFormula = m_Model_CaculateValue.CaculateFormula + ")";
+                    if (m_VariableContrastDic.ContainsKey(m_NumeratorVariable))
+                    {
+                        m_Model_CaculateValue.CaculateFormula = "(" + m_VariableContrastDic[m_NumeratorVariable] + "+辅助电量*" + m_VariableContrastDic[m_NumeratorVariable] + "/" + m_Model_CaculateValue.CaculateFormula + ")";
+                    }
+                    else
+                    {
+                        m_Model_CaculateValue.CaculateFormula = "(" + m_NumeratorVariable + "+辅助电量*" + m_NumeratorVariable + "/" + m_Model_CaculateValue.CaculateFormula + ")";
+                    }
+                    if (m_VariableContrastDic.ContainsKey(m_DenominatorVariable))
+                    {
+                        m_Model_CaculateValue.CaculateFormula = m_Model_CaculateValue.CaculateFormula + "/" + m_VariableContrastDic[m_DenominatorVariable];
+                    }
+                    else
+                    {
+                        m_Model_CaculateValue.CaculateFormula = m_Model_CaculateValue.CaculateFormula + "/" + m_DenominatorVariable;
+                    }
+                }
+                Standard_GB16780_2012.Model_CaculateFactor m_CaculateFactorAuxiliaryProductionTemp = new Standard_GB16780_2012.Model_CaculateFactor();
+                m_CaculateFactorAuxiliaryProductionTemp.FactorName = "auxiliaryProduction_ElectricityQuantity";
+                m_CaculateFactorAuxiliaryProductionTemp.FactorValue = 0.0m;
+
+                Standard_GB16780_2012.Model_CaculateFactor m_CaculateFactorDenominatorTemp = new Standard_GB16780_2012.Model_CaculateFactor();
+                m_CaculateFactorDenominatorTemp.FactorName = m_DenominatorVariable;
+                m_CaculateFactorDenominatorTemp.FactorValue = 0.0m;
+                m_Model_CaculateValue.CaculateFactor.Add(m_CaculateFactorDenominatorTemp);
+
+
+                m_Model_CaculateValue.CaculateFactor.Add(m_CaculateFactorAuxiliaryProductionTemp);
+
+                for (int i = 0; i < sourceDt.Rows.Count; i++)
+                {
+                    for (int j = 0; j < m_Model_CaculateValue.CaculateFactor.Count; j++)
+                    {
+                        if (m_Model_CaculateValue.CaculateFactor[j].FactorName == sourceDt.Rows[i]["VariableId"].ToString())
+                        {
+                            m_Model_CaculateValue.CaculateFactor[j].FactorValue = m_Model_CaculateValue.CaculateFactor[j].FactorValue + (decimal)sourceDt.Rows[i][m_StatisticType];
+                        }
+                    }
+                }
+                if (auxiliaryProductionDt != null && auxiliaryProductionDt.Rows.Count > 0)
+                {
+                    for (int i = 0; i < m_Model_CaculateValue.CaculateFactor.Count; i++)
+                    {
+                        if (m_Model_CaculateValue.CaculateFactor[i].FactorName == "auxiliaryProduction_ElectricityQuantity")
+                        {
+                            string m_StatisticTypeTemp = m_StatisticType == "CumulantMonth" ? "CumulantDay" : m_StatisticType;
+                            m_Model_CaculateValue.CaculateFactor[i].FactorValue = m_Model_CaculateValue.CaculateFactor[i].FactorValue + (decimal)auxiliaryProductionDt.Rows[0][m_StatisticTypeTemp];
+                        }
+                    }
+                }
+                for (int i = 0; i < m_Model_CaculateValue.CaculateFactor.Count; i++)
+                {
+                    if (m_VariableContrastDic.ContainsKey(m_Model_CaculateValue.CaculateFactor[i].FactorName))
+                    {
+                        m_Model_CaculateValue.CaculateFactor[i].FactorName = m_VariableContrastDic[m_Model_CaculateValue.CaculateFactor[i].FactorName];
+                    }
+                }
+            }
+            return m_Model_CaculateValue;
         }
     }
 }

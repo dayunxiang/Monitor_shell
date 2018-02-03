@@ -37,6 +37,8 @@
 </head>
 <body id="SubMonitorBody" style="margin: 0px; padding: 0px; overflow: auto;">
     <div id="SubMonitorLayout" style="position: relative; background-image: url('../../images/page/zc_nxjc_tsc_tsf_clinker01_shu.png'); width: 1350px; height: 740px; overflow: hidden;">
+           <div id="EnergyTextGround"style="font-size:large;padding-left:25px;padding-bottom:200px;padding-right:500px;padding-top:0px;width:315px;height: 760px;word-break:break-all"></div>
+
            <%--原煤取料机--%>
         <table class="mytable" style="position: absolute; top: 34px; left: 512px;">
             <tr>

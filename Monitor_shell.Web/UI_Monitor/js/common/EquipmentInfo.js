@@ -34,7 +34,7 @@ var equipmentmentNames = {
     clinkerAirCompressorPowerSupply3: "3号空压机电源",
     clinkerF11AC: "篦冷机F11",
     clinkerF12AC: "篦冷机F12",
-    rawMealGrindingMainMotor: "原料磨主电机",
+    rawMealGrindingMainMotor: "磨活动辊",
     clinkerHoist2: "2#入窑提升机电机",
     limestoneStacker: "石灰石堆取料机",
     clinkerChainConveyor: "熟料拉链机",

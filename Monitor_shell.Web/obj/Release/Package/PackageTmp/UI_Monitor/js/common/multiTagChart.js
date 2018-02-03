@@ -4,6 +4,7 @@ var lableName;
 $(function () {
     $('#htmlContainer').append(GetMenuHtml());
     $('#htmlContainer').append(GetComprehensiveMenuHtml());
+    $('#htmlContainer').append(GetSumProcessMenuHtml());           //增加分步电耗的右键菜单
     $.parser.parse('#htmlContainer');
     BindContextmenu();
     getLableName();
@@ -26,6 +27,14 @@ function BindContextmenu() {
         multiTagCharData.selectedId = this.id;
         e.preventDefault();
         $('#Menu_ComprehensiveInfo').menu('show', {
+            left: e.pageX,
+            top: e.pageY
+        });
+    });
+    $(".SumProcess:not(.nodisplay)").bind('contextmenu', function (e) {
+        multiTagCharData.selectedId = this.id;
+        e.preventDefault();
+        $('#Menu_SumProcessInfo').menu('show', {
             left: e.pageX,
             top: e.pageY
         });
@@ -53,33 +62,6 @@ function ClassificationId(id) {
     }
     AddLableToCookie(fixedId);
 }
-
-//绑定右键菜单事件
-//function BindContextmenu() {
-//    $(".mchart:not(.nodisplay)").bind('contextmenu', function (e) {
-//        e.preventDefault();
-//        var preLableId = this.id;//前台标签ID
-//        var fixedId = '';//处理后的标签ID
-//        var lableArray = preLableId.split('>');
-//        if (lableArray.length != 3)
-//            return false;
-//        //累计量
-//        if (lableArray[2] == 'Class' || lableArray[2] == 'Day' || lableArray[2] == 'Month' || lableArray[2] == 'SumClass' || lableArray[2] == 'SumDay' || lableArray[2] == 'SumMonth'
-//            || lableArray[2] == 'SumProcessClass' || lableArray[2] == 'SumProcessDay' || lableArray[2] == 'SumProcessMonth') {
-//            var tempArray = lableArray[1].split('_');
-//            if (tempArray.length == 2)
-//                fixedId = lableArray[0] + '>' + tempArray[0];
-//            else
-//                return false;
-//        }
-//        //实时量
-//        if (lableArray[2] == 'ElectricityQuantity' || lableArray[2] == 'ElectricityConsumption' || lableArray[2] == 'Current' || lableArray[2] == 'Power') {
-//            fixedId=lableArray[0]+'>'+lableArray[1];
-//        }
-//        AddLableToCookie(fixedId);
-//    });
-//}
-
 //当点击菜单项（添加标签）时被调用的函数，将标签加入Cookie
 function AddLableToCookie(lableId) {
     //myLableArray.push(lableId);
@@ -166,6 +148,13 @@ function GetMenuHtml() {
 function GetComprehensiveMenuHtml() {
     var html = '<div id="Menu_ComprehensiveInfo" class="easyui-menu" style="width: 120px;">\
         <div data-options="iconCls:\'icon-search\'" onclick="javascript:ShowComprehensiveStatistics(multiTagCharData.selectedId)">查看计算过程</div>\
+    </div>';
+    return html;
+}
+//增加分步电耗的统计过程
+function GetSumProcessMenuHtml() {
+    var html = '<div id="Menu_SumProcessInfo" class="easyui-menu" style="width: 120px;">\
+        <div data-options="iconCls:\'icon-search\'" onclick="javascript:ShowSumProcessStatistics(multiTagCharData.selectedId)">查看计算过程</div>\
     </div>';
     return html;
 }

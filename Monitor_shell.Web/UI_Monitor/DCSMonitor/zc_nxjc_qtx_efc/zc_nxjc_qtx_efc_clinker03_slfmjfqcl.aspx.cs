@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Monitor_qtx.Web.UI_Monitor.DCSMonitor.zc_nxjc_qtx_efc
 {
-    public partial class zc_nxjc_qtx_efc_clinker03_slfmjfqcl1 : System.Web.UI.Page
+    public partial class zc_nxjc_qtx_efc_clinker03_slfmjfqcl: System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

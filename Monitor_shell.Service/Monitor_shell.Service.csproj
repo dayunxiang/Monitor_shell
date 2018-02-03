@@ -57,12 +57,15 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="UpDownLoadFiles">
+      <HintPath>..\..\Lib\UpDownLoadFiles.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Alarm\AlarmService.cs" />
     <Compile Include="DisplayName\DisplayNameHelper.cs" />
-    <Compile Include="FormulaEnergy\FormulaEnergyService.cs" />
-    <Compile Include="FormulaEnergy\FormulaPowerService.cs" />
+    <Compile Include="MeterStatistics\FormulaEnergy\FormulaEnergyService.cs" />
+    <Compile Include="MeterStatistics\FormulaEnergy\FormulaPowerService.cs" />
     <Compile Include="Formula\FormulaHelper.cs" />
     <Compile Include="MeterStatistics\AmmeterData.cs" />
     <Compile Include="MeterStatistics\MeterStatisticsHelper.cs" />

@@ -37,6 +37,7 @@
 </head>
 <body id="SubMonitorBody" style="margin: 0px; padding: 0px; overflow: auto;">
     <div id="SubMonitorLayout" style="position: relative; background-image: url('../../images/page/zc_nxjc_byc_byf_clinker01_sheng.png'); width: 1350px; height: 740px; overflow: hidden;">
+     <div id="EnergyTextGround"style="font-size:large;padding-left:25px;padding-bottom:200px;padding-right:500px;padding-top:0px;width:315px;height: 760px;word-break:break-all"></div>
         <table class="mytable" style="position: absolute; top: 45px; left: 18px;">
             <tr>
                 <td><span id="zc_nxjc_byc_byf>limestoneCrusher1>ElectricityConsumption" class="mchart"></span></td>
@@ -53,7 +54,7 @@
                 <td><span id="zc_nxjc_byc_byf>limestoneMineBelt>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>limestoneMineBelt>Current" class="mchart nodisplay"></span></td>
+                <td><span id="zc_nxjc_byc_byf>limestoneMineBelt>Current" class="mchart nodisplay"></span></td>
             </tr>
             <tr>
                 <td><span id="zc_nxjc_byc_byf>limestoneMineBelt>Power" class="mchart"></span></td>

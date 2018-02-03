@@ -37,8 +37,10 @@
 </head>
 <body id="SubMonitorBody" style="margin: 0px; padding: 0px; overflow: auto;">
         <div id="SubMonitorLayout" style="position: relative; background-image: url('../../images/page/zc_nxjc_lpsc_lpsf_clinker01_shu.png'); width: 1350px; height: 740px; overflow: hidden; top: 8px; left: 0px;">
+   <div id="EnergyTextGround"style="font-size:large;padding-left:25px;padding-bottom:200px;padding-right:500px;padding-top:0px;width:315px;height: 760px;word-break:break-all"></div>
 
-            <%--贴标签处--%>
+
+          <%--  <%--贴标签处--%>
  <%--420AH05_煤磨主电机--%>
         <table class="mytable" style="position: absolute; top: 256px; left: 901px;">
             <tr>
@@ -76,7 +78,7 @@
             </tr>
         </table>
         <%--83WAT06_窑头篦冷机喷水泵--%>
-        <table class="mytable" style="position: absolute; top: 330px; left: 934px;">
+       <%-- <table class="mytable" style="position: absolute; top: 333px; left: 1067px;">
             <tr>
                 <td><span id="zc_nxjc_lpsc_lpsf_clinker01>gratecoolerpump>ElectricityConsumption" class="mchart"></span></td>
             </tr>
@@ -86,7 +88,7 @@
             <tr>
                 <td><span id="zc_nxjc_lpsc_lpsf_clinker01>gratecoolerpump>Power" class="mchart"></span></td>
             </tr>
-        </table>
+        </table>--%>
         <%--420AT10_5601窑主电机--%>
         <table class="mytable" style="position: absolute; top: 440px; left: 388px;">
             <tr>
@@ -207,54 +209,6 @@
                 <td><span id="zc_nxjc_lpsc_lpsf_clinker01>clinker5732>Power" class="mchart"></span></td>
             </tr>
         </table>
-        <%--15AT01_7601熟料斗式提升机--%>
-        <table class="mytable" style="position: absolute; top: 678px; left: 1243px;">
-            <tr>
-                <td><span id="zc_nxjc_lpsc_lpsf_clinker01>Hoist7601>ElectricityConsumption" class="mchart"></span></td>
-            </tr>
-            <tr>
-                <td><span id="zc_nxjc_lpsc_lpsf_clinker01>Hoist7601>Current" class="mchart"></span></td>
-            </tr>
-            <tr>
-                <td><span id="zc_nxjc_lpsc_lpsf_clinker01>Hoist7601>Power" class="mchart"></span></td>
-            </tr>
-        </table>
-         <%--15AT01_7603石膏提升机--%>
-        <table class="mytable" style="position: absolute; top: 678px; left: 1178px;">
-            <tr>
-                <td><span id="zc_nxjc_lpsc_lpsf_clinker01>Hoist7603>ElectricityConsumption" class="mchart"></span></td>
-            </tr>
-            <tr>
-                <td><span id="zc_nxjc_lpsc_lpsf_clinker01>Hoist7603>Current" class="mchart"></span></td>
-            </tr>
-            <tr>
-                <td><span id="zc_nxjc_lpsc_lpsf_clinker01>Hoist7603>Power" class="mchart"></span></td>
-            </tr>
-        </table>
-        <%--15AT01_矿渣库袋收尘--%>
-        <table class="mytable" style="position: absolute; top: 678px; left: 1114px; height: 24px;">
-            <tr>
-                <td><span id="zc_nxjc_lpsc_lpsf_clinker01>sandbagdustcollector>ElectricityConsumption" class="mchart"></span></td>
-            </tr>
-            <tr>
-                <td><span id="zc_nxjc_lpsc_lpsf_clinker01>sandbagdustcollector>Current" class="mchart"></span></td>
-            </tr>
-            <tr>
-                <td><span id="zc_nxjc_lpsc_lpsf_clinker01>sandbagdustcollector>Power" class="mchart"></span></td>
-            </tr>
-        </table>
-        <%--15AT01_7602石膏破碎机--%>
-        <table class="mytable" style="position: absolute; top: 679px; left: 1053px; height: 24px;">
-            <tr>
-                <td><span id="zc_nxjc_lpsc_lpsf_clinker01>gypsumCrusher>ElectricityConsumption" class="mchart"></span></td>
-            </tr>
-            <tr>
-                <td><span id="zc_nxjc_lpsc_lpsf_clinker01>gypsumCrusher>Current" class="mchart"></span></td>
-            </tr>
-            <tr>
-                <td><span id="zc_nxjc_lpsc_lpsf_clinker01>gypsumCrusher>Power" class="mchart"></span></td>
-            </tr>
-        </table>
            <%--7316煤磨风机变频器--%>
         <table class="mytable" style="position: absolute; top: 138px; left: 1248px;">
             <tr>
@@ -268,7 +222,7 @@
             </tr>
         </table>
            <%--83WAT05_窑头收尘器--%>
-        <table class="mytable" style="position: absolute; top: 329px; left: 999px;">
+        <table class="mytable" style="position: absolute; top: 339px; left: 1121px;">
             <tr>
                 <td><span id="zc_nxjc_lpsc_lpsf_clinker01>kilnHeaddustcollector>ElectricityConsumption" class="mchart"></span></td>
             </tr>
@@ -279,18 +233,18 @@
                 <td><span id="zc_nxjc_lpsc_lpsf_clinker01>kilnHeaddustcollector>Power" class="mchart"></span></td>
             </tr>
         </table>
-           <%--420AT09_7617风机（送煤）--%>
-      <%--  <table class="mytable" style="position: absolute; top: 329px; left: 1196px;">
+           <%--830AH12_窑头排风机--%>
+        <table class="mytable" style="position: absolute; top: 339px; left: 1186px;">
             <tr>
-                <td><span id="zc_nxjc_lpsc_lpsf_clinker01>coalMilRootsBlower7617>ElectricityConsumption" class="mchart"></span></td>
+                <td><span id="zc_nxjc_lpsc_lpsf_clinker01>kilnHeadExhaustFan>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_lpsc_lpsf_clinker01>coalMilRootsBlower7617>Current" class="mchart"></span></td>
+                <td><span id="zc_nxjc_lpsc_lpsf_clinker01>kilnHeadExhaustFan>Current" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_lpsc_lpsf_clinker01>coalMilRootsBlower7617>Power" class="mchart"></span></td>
+                <td><span id="zc_nxjc_lpsc_lpsf_clinker01>kilnHeadExhaustFan>Power" class="mchart"></span></td>
             </tr>
-        </table>--%>
+        </table>
            <%--ABB_篦冷机电动机（57.02）--%>
         <table class="mytable" style="position: absolute; top: 424px; left: 783px;">
             <tr>
@@ -469,7 +423,7 @@
      <!----------------------------运行状态------------------------------------>
 
   
-   < <!--52AT02_5212入窑胶带提升机-->
+    <!--52AT02_5212入窑胶带提升机-->
     <div class="imageContainer equipmentInfo" data-equipmentid="clinkerHoist" id="zc_nxjc_lpsc_lpsf_clinker01>clinkerHoist>RunningState" style="position: absolute; height: 20px; width: 19px; top: 56px; left: 331px;"></div>
      <!--56AT13_1#冷却风机（57.08）-->
     <div class="imageContainer equipmentInfo" data-equipmentid="clinkerF6M" id="zc_nxjc_lpsc_lpsf_clinker01>clinkerF6M>RunningState" style="position: absolute; height: 20px; width: 19px; top: 529px; left: 593px;"></div>
@@ -489,20 +443,16 @@
     <div class="imageContainer equipmentInfo" data-equipmentid="clinker5730" id="zc_nxjc_lpsc_lpsf_clinker01>clinker5730>RunningState" style="position: absolute; height: 20px; width: 19px; top: 531px; left: 889px;"></div>           
     <!--56AT13_5732冷却风机-->
     <div class="imageContainer equipmentInfo" data-equipmentid="clinker5732" id="zc_nxjc_lpsc_lpsf_clinker01>clinker5732>RunningState" style="position:absolute; top: 530px; left: 923px; height: 20px; width: 19px;"></div>
-    <!--15AT01_7601熟料斗式提升机-->
-    <div class="imageContainer equipmentInfo" data-equipmentid="Hoist7601" id="zc_nxjc_lpsc_lpsf_clinker01>Hoist7601>RunningState" style="position:absolute; top: 602px; left: 1175px; height: 20px; width: 19px;"></div>
+   
     <!--ABB_篦冷机电动机（57.02）-->
     <div class="imageContainer equipmentInfo" data-equipmentid="gratecooler" id="zc_nxjc_lpsc_lpsf_clinker01>gratecooler>RunningState" style="position:absolute; top: 448px; left: 752px; height: 20px; width: 19px;"></div>
-    <!--15AT01_7603石膏提升机-->
-    <div class="imageContainer equipmentInfo" data-equipmentid="Hoist7603" id="zc_nxjc_lpsc_lpsf_clinker01>Hoist7603>RunningState" style="position:absolute; top: 601px; left: 1115px; height: 20px; width: 19px;"></div>
     <!--15AT01_熟料链斗式输送（15.01）-->
     <div class="imageContainer equipmentInfo" data-equipmentid="clinkerChainConveyor" id="zc_nxjc_lpsc_lpsf_clinker01>clinkerChainConveyor>RunningState" style="position:absolute; top: 479px; left: 1180px; height: 20px; width: 19px;"></div>
      <!--15AT01_矿渣库袋收尘-->
-    <div class="imageContainer equipmentInfo" data-equipmentid="sandbagdustcollector" id="zc_nxjc_lpsc_lpsf_clinker01>sandbagdustcollector>RunningState" style="position:absolute; top: 599px; left: 1152px; height: 20px; width: 19px;"></div>
+    <%--<div class="imageContainer equipmentInfo" data-equipmentid="sandbagdustcollector" id="zc_nxjc_lpsc_lpsf>sandbagdustcollector>RunningState" style="position:absolute; top: 599px; left: 1152px; height: 20px; width: 19px;"></div>--%>
      <!--57AT03_熟料破碎机电机（57.02a）-->
     <div class="imageContainer equipmentInfo" data-equipmentid="clinkerCrusher" id="zc_nxjc_lpsc_lpsf_clinker01>clinkerCrusher>RunningState" style="position:absolute; top: 447px; left: 951px; height: 20px; width: 19px;"></div>
-     <!--15AT01_7602石膏破碎机-->
-    <div class="imageContainer equipmentInfo" data-equipmentid="gypsumCrusher" id="zc_nxjc_lpsc_lpsf_clinker01>gypsumCrusher>RunningState" style="position:absolute; top: 629px; left: 1112px; height: 20px; width: 19px;"></div>
+    
    
      <!--83WAT05_窑头收尘器-->
     <div class="imageContainer equipmentInfo" data-equipmentid="kilnHeaddustcollector" id="zc_nxjc_lpsc_lpsf_clinker01>kilnHeaddustcollector>RunningState" style="position:absolute; top: 410px; left: 1064px; height: 20px; width: 19px;"></div>
@@ -512,7 +462,7 @@
     <!--830AH12_窑头排风机-->
     <div class="imageContainer equipmentInfo" data-equipmentid="kilnHeadExhaustFan" id="zc_nxjc_lpsc_lpsf_clinker01>kilnHeadExhaustFan>RunningState" style="position: absolute; height: 20px; width: 19px; top: 421px; left: 1197px;"></div>
     <!--7316煤磨风机变频器-->
-    <div class="imageContainer equipmentInfo" data-equipmentid="clinkerF1M" id="zc_nxjc_lpsc_lpsf_clinker01>clinkerF1M>RunningState" style="position: absolute; height: 20px; width: 19px; top: 93px; left: 1269px;"></div>
+    <div class="imageContainer equipmentInfo" data-equipmentid="clinkerF1M" id="zc_nxjc_lpsc_lpsf_clinker01>clinkerF1M>RunningState" style="position: absolute; height: 20px; width: 19px; top: 66px; left: 1237px;"></div>
     <!--420AH05_煤磨主电机-->
     <div class="imageContainer equipmentInfo" data-equipmentid="coalMillMainMotor" id="zc_nxjc_lpsc_lpsf_clinker01>coalMillMainMotor>RunningState" style="position: absolute; height: 20px; width: 19px; top: 297px; left: 852px;"></div>
    
@@ -522,6 +472,10 @@
     <div class="imageContainer equipmentInfo" data-equipmentid="coalMilRootsBlower7618" id="zc_nxjc_lpsc_lpsf_clinker01>coalMilRootsBlower7618>RunningState" style="position: absolute; height: 20px; width: 19px; top: 302px; left: 1165px;"></div>
     <!--420AT10_5601窑主电机-->
     <div class="imageContainer equipmentInfo" data-equipmentid="kilnMainMotor" id="zc_nxjc_lpsc_lpsf_clinker01>kilnMainMotor>RunningState" style="position: absolute; height: 20px; width: 19px; top: 435px; left: 326px;"></div> 
+    <!--41EA07_窑尾排风机-->
+    <div class="imageContainer equipmentInfo" data-equipmentid="kilnTailExhaustFan" id="zc_nxjc_lpsc_lpsf_clinker01>kilnTailExhaustFan>RunningState" style="position: absolute; height: 20px; width: 19px; top: 320px; left: 56px;"></div>
+    <!--41EA05_高温风机电源-->
+    <div class="imageContainer equipmentInfo" data-equipmentid="highTemperatureFan" id="zc_nxjc_lpsc_lpsf_clinker01>highTemperatureFan>RunningState" style="position: absolute; height: 20px; width: 19px; top: 439px; left: 65px;"></div>
      </div>
 </body>
 

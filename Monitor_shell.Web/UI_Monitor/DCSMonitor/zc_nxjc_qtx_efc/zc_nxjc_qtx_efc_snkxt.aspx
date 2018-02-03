@@ -48,7 +48,7 @@
    <div id="TextGround"style="font-size:large;padding-left:40px;padding-bottom:200px;padding-right:500px;padding-top:0px;width:1480px;height: 760px;"></div>   
         <div id="Picture"style="position: absolute; top: 4px; left: 7px; height: 20px; width: 20px; background-size:100% auto"></div> 
   <%--贴标签处--%>
-<%--         <button onclick="CheckTags()">检查标签</button>--%>
+         <%--<button onclick="CheckTags()">检查标签</button>--%>
         <%--模拟量--%>
         <div class="AnlogSignal mchart" id="zc_nxjc_qtx_efc>Cement01_MLT09_R>DCS" data-option="Alarm='HH,H,LL,L',Range='Max,Min'" style="width:52px; display:block; left: 107px; position:absolute;color:blue;text-align:right; bottom: 538px; height: 18px;"></div>
         <div class="AnlogSignal mchart" id="zc_nxjc_qtx_efc>Cement01_MLT10_R>DCS" data-option="Alarm='HH,H,LL,L',Range='Max,Min'" style="width:52px; display:block; left: 246px; position:absolute;color:blue;text-align:right; bottom: 538px; height: 18px;"></div>

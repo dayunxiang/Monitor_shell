@@ -41,16 +41,16 @@
 </head>
 
 <body id="SubMonitorBody" style="margin: 0px; padding: 0px; overflow: auto;">
-    <div id="ForeGround" style="width: 1557px; height: 807px; margin: 0px auto; position:absolute;z-index:5555;overflow: auto; background-color: #FFFFFF;"></div>
+<%--    <div id="ForeGround" style="width: 1557px; height: 807px; margin: 0px auto; position:absolute;z-index:5555;overflow: auto; background-color: #FFFFFF;"></div>--%>
     <div id="SubMonitorLayout" style="position: relative; background-image: url('../../images/page/DCS/zc_nxjc_qtx_tys/zc_nxjc_qtx_tys_cementmill04_snfm.png'); width: 1557px; height: 807px; overflow: hidden; top: 0px; left: 0px;">
-       <div id="ConnectionGround" style="width: 1557px; height: 807px;margin: 0px auto; position:absolute;z-index:5555;overflow: auto;background-color:gray;opacity:0.6">
-   </div>
-   <div id="TextGround"style="font-size:large;padding-left:40px;padding-bottom:200px;padding-right:500px;padding-top:0px;width:1557px;height: 807px;"></div>   
+       <%--<div id="ConnectionGround" style="width: 1557px; height: 807px;margin: 0px auto; position:absolute;z-index:5555;overflow: auto;background-color:gray;opacity:0.6">
+   </div>--%>
+<%--   <div id="TextGround"style="font-size:large;padding-left:40px;padding-bottom:200px;padding-right:500px;padding-top:0px;width:1557px;height: 807px;"></div>   --%>
      <%--标签粘贴处--%>
-<%--        <button onclick="CheckTags()">检查标签</button>--%>
+        <button onclick="CheckTags()">检查标签</button>
     <%--开关量--%>
 <%--        <div></div>--%>
-    <div id="Picture"style="position: absolute; top: 4px; left: 7px; height: 20px; width: 20px; background-size:100% auto"></div>   
+<%--    <div id="Picture"style="position: absolute; top: 4px; left: 7px; height: 20px; width: 20px; background-size:100% auto"></div>   --%>
     <div class="BoolSignal mchart" id="zc_nxjc_qtx_tys>dcs01_N55141AR_RD>BoolSignal" style="position: absolute; top: 48px; left: 235px; height: 14px; width: 14px;" data-option="RelatedTags='dcs01_N55141AR_RD,dcs01_N55141AR_RN,dcs01_N55141AR_ERR',Display='000:yellowCB,001:redCB,010:greenCB,011:redCB,100:yellowC,101:redCB,110:greenC,111:redCB'"></div>
     <div class="BoolSignal mchart" id="zc_nxjc_qtx_tys>dcs01_N55101_RD>BoolSignal" style="position: absolute; top: 181px; left: 224px; height: 19px; width: 15px;" data-option="RelatedTags='dcs01_N55101_RD,dcs01_N55101_RN,dcs01_N55101_ERR',Display='000:yellowS,001:redS,010:greenS,011:redS,100:yellowS,101:redS,110:greenS,111:redS'"></div>
     <div class="BoolSignal mchart" id="zc_nxjc_qtx_tys>dcs01_N53307AR_RD>BoolSignal" style="position: absolute; top: 103px; left: 153px; height: 14px; width: 14px;" data-option="RelatedTags='dcs01_N53307AR_RD,dcs01_N53307AR_RN,dcs01_N53307AR_ERR',Display='000:yellowCB,001:redCB,010:greenCB,011:redCB,100:yellowC,101:redCB,110:greenC,111:redCB'"></div>

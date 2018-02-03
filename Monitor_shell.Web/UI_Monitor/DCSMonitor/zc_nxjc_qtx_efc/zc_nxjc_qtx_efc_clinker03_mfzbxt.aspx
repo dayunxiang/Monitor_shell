@@ -204,6 +204,7 @@
         <%--模拟量--%>
         <div class="AnlogSignal mchart" id="zc_nxjc_qtx_efc>Clinker03_AI1_430_12>DCS" data-option="Alarm='HH,H,LL,L',Range='Max,Min'" style="width: 46px; display: block; top: 652px; left: 94px; position: absolute; color: #4cff00; text-align: right;"></div>
         <div class="AnlogSignal mchart" id="zc_nxjc_qtx_efc>Clinker03_F_43000L01>DCS" data-option="Alarm='HH,H,LL,L',Range='Max,Min'" style="width:46px; display:block; top: 201px; left: 634px; position:absolute;color:blue;text-align:right;"></div>
+        <div class="AnlogSignal mchart" id="zc_nxjc_qtx_efc>Clinker03_AI1_421_11>DCS" data-option="Alarm='HH,H,LL,L',Range='Max,Min'" style="width:46px; display:block; top: 132px; left: 581px; position:absolute;color:#4cff00;text-align:right;"></div>       
         <div class="AnlogSignal mchart" id="zc_nxjc_qtx_efc>Clinker03_MM1>DCS" data-option="Alarm='HH,H,LL,L',Range='Max,Min'" style="width: 198px; display: block; top: 703px; left: 499px; position: absolute; color:  #4cff00; text-align: right;"></div>
         <div class="AnlogSignal mchart" id="zc_nxjc_qtx_efc>Clinker03_MM2>DCS" data-option="Alarm='HH,H,LL,L',Range='Max,Min'" style="width: 198px; display: block; top: 726px; left: 499px; position: absolute; color:  #4cff00; text-align: right;"></div>
         

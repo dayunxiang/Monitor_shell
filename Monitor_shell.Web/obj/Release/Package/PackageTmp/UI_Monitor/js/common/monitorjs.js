@@ -324,7 +324,7 @@ function textInnation(dcsTime) {
     var num = (ds - dt) / (1000 * 60);
     var min = parseInt(Math.ceil(num));
     var Intmin = Math.abs(min);
-    if (Intmin > 30) {
+    if (Intmin > 20) {
         var oBox = document.getElementById("ConnectionGround"); //要闪烁的div id  
         var timer = null;   //定义时间器  
         var i = 0;
@@ -607,23 +607,17 @@ function GetAlarmColor(t_Value, t_AlarmTags, t_tagInfos) {
         }
     }
     if (flag_H) {
-        if (t_Value >= t_tagInfos.Value_H) {
+        if (t_Value >= t_tagInfos.Value_H && t_Value < t_tagInfos.Value_HH) {
             result_color = SystemColor.Color_H;//"高限颜色";
             return result_color;
         }
-    }
-    if (flag_L) {
-        if (t_Value <= t_tagInfos.Value_L) {
-            result_color = SystemColor.Color_L;//"低限颜色";
+        if (t_Value < t_tagInfos.Value_H)
+        {
             return result_color;
+
         }
     }
-    if (flag_LL) {
-        if (t_Value <= t_tagInfos.Value_LL) {
-            result_color = SystemColor.Color_LL;// "低低限颜色";
-            return result_color;
-        }
-    }
+        
     else {
         return result_color;//无法匹配则返回空
     }

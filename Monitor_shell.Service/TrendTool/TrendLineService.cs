@@ -93,5 +93,12 @@ namespace Monitor_shell.Service.TrendTool
                 return m_TrendLineName;
             }
         }
+        public static void ExportExcelFile(string myFileType, string myFileName, string myData)
+        {
+            if (myFileType == "xls")
+            {
+                UpDownLoadFiles.DownloadFile.ExportExcelFile(myFileName, myData);
+            }
+        }
     }
 }

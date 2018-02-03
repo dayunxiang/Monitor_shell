@@ -131,7 +131,7 @@
             <tr>
                 <td><span id="zc_nxjc_tsc_tsf_cementmill02>cementMillMainMotor>Power" class="mchart"></span></td>
             </tr>
-        </table>
+        <%--</table>--%>
          <!-- 辊压机活动辊-->
         <table class="mytable" style="position: absolute; top: 465px; left: 413px;">
             <tr>

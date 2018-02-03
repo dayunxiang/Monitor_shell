@@ -30,7 +30,7 @@
     <script type="text/javascript" src="/lib/pllib/plugins/jqplot.cursor.min.js"></script>
     <script type="text/javascript" src="/lib/pllib/plugins/jqplot.highlighter.min.js"></script>
     <script type="text/javascript" src="/lib/pllib/plugins/jqplot.trendline.min.js"></script>
-    <script type="text/javascript" src="/lib/pllib/plugins/jqplot.canvasOverlay.min.js"></script> 
+    <script type="text/javascript" src="/lib/pllib/plugins/jqplot.canvasOverlay.min.js"></script>
     <!-- jqplot 脚本结束 -->
 
     <!-- colorpicker 样式开始 -->
@@ -130,6 +130,78 @@
                 }
             });
         }
+        //对标签进行判断区分DCS和能源
+        
+        function TagDescription(tagId)
+        {
+            var idArray = tagId.split('>');
+            if (idArray[2] == "ElectricityConsumption" || idArray[2] == "Current" || idArray[2] == "Power" || idArray[2] == "RunningState") {
+                $("#tagName").textbox('setValue', idArray[1]);
+                amaterTagDescription(tagId);
+            }
+            else {
+                $("#tagName").textbox('setValue', idArray[1]);
+                DCSTagInfoDescription(tagId);
+            }
+        }
+        //对能源进行的处理
+        function amaterTagDescription(id) {
+            var idArray = id.split('>');
+            var dataToServer = {
+                organizationId: idArray[0],
+                variableId: idArray[1].split('_')[0]
+            };
+            $.ajax({
+                type: "POST",
+                url: "/UI_Monitor/ProcessEnergyMonitor/MonitorShell/MultiMonitorShell.asmx/GetAmmeterStatisticData",
+                data: JSON.stringify(dataToServer),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (msg) {
+                    m_MsgData = jQuery.parseJSON(msg.d);
+                    if (m_MsgData.equipmentInfo != "") {
+                        $("#tagDescription").textbox('setValue', m_MsgData.equipmentInfo.rows[0].EquipmentName);
+                    }
+                }
+            });
+        }
+       //对DCS监控进行的处理
+        function DCSTagInfoDescription(tagId) {
+            var tagDescription = tagId.split('>');
+            var tagnumber = tagDescription[1].split(',');
+            if (tagnumber.length > 1) {
+                tagId = tagDescription[0] + ">" + tagnumber[0];
+                var tagSendData = "{tagId:'" + tagId + "'}";
+                var UrlString = "/UI_Monitor/DCSMonitor/MonitorShell/DCSMonitorShell.asmx/GetTagInfos";
+                $.ajax({
+                    type: "POST",
+                    url: UrlString,
+                    data: tagSendData,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        var removeTag = data.d[0].TagDescription;
+                        $("#tagDescription").textbox('setValue', removeTag.replace("备妥",""));
+                    }
+                });
+
+            }
+            else {
+                var tagSendData = "{tagId:'" + tagId + "'}";
+                var UrlString = "/UI_Monitor/DCSMonitor/MonitorShell/DCSMonitorShell.asmx/GetTagInfos";
+                $.ajax({
+                    type: "POST",
+                    url: UrlString,
+                    data: tagSendData,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        //var m_MsgData = jQuery.parseJSON(msg.d);
+                        $("#tagDescription").textbox('setValue', data.d[0].TagDescription);
+                    }
+                });
+            }
+        }
         $(document).ready(function () {
             //variableId = decodeURI(window.location.hash);//decodeURI() 函数可对 encodeURI() 函数编码过的 URI 进行解码。
             variableId = GetQueryString("id");
@@ -139,13 +211,13 @@
             var myClass = GetQueryString("class");
             if (MyStrContain(myClass, "BoolSignal")) {
                 //chartOptions.axes.yaxis.ticks = [[0, "备妥"], [1, "正转"], [2, "反转"], [3, "机正"], [4, "机反"], [5, "故障"], [6, "停止"]]
-                chartOptions.axes.yaxis.ticks = [[0,'000'],[1,'001'],[2,'010'],[3,'011'],[4,'100'],[5,'101'],[6,'110'],[7,'111']];
+                chartOptions.axes.yaxis.ticks = [[0, '000'], [1, '001'], [2, '010'], [3, '011'], [4, '100'], [5, '101'], [6, '110'], [7, '111']];
             }
             else if (MyStrContain(myClass, "AnlogSignal")) {
                 AnlogSignalMethod(variableId);
             }
             InitConfig(myClass);
-
+            TagDescription(variableId);
             getTrendName();
             getData();
             //fakeData();
@@ -271,7 +343,6 @@
         function InitConfig(myClass) {
             var startDate = new Date();
             var endDate = new Date();
-            
             if (MyStrContain(myClass, "BoolSignal") || MyStrContain(myClass, "AnlogSignal") || MyStrContain(myClass, "BarGraph")) {
                 //设置默认为20分钟的时间
                 startDate.setMinutes(startDate.getMinutes() - 20);
@@ -280,27 +351,250 @@
                 if (MyStrContain(myClass, "BoolSignal")) {
                     $('#timeSpan').combobox('disable');
                 }
+
+                $('#endTime').datetimebox('setValue', formatDate(endDate));
+                $('#startTime').datetimebox({
+                    onChange: function () {
+                        var startTime = $('#startTime').datebox('getValue');
+                        var endTime = $('#endTime').datebox('getValue');
+                        var dt = new Date(startTime.replace(/-/g, "/"));
+                        var ds = new Date(endTime.replace(/-/g, "/"));
+                        var num = (ds - dt) / (1000 * 60);
+                        var min = parseInt(Math.ceil(num));
+                        var Intmin = Math.abs(min);
+                        if (Intmin > 0 && Intmin < 60) {
+                            var productJsonData = [{
+                                "id": 1,
+                                "text": "01秒",
+                                "value": 1,
+                                "selected": true
+                            }, {
+                                "id": 2,
+                                "text": "02秒",
+                                "value": 2
+                            }, {
+                                "id": 3,
+                                "text": "03秒",
+                                "value": 3
+                            }, {
+                                "id": 4,
+                                "text": "04秒",
+                                "value": 4
+                            }, {
+                                "id": 5,
+                                "text": "05秒",
+                                "value": 5
+                            }
+                            ]
+                        }
+                        else if (Intmin > 60 && Intmin <= 4320) {
+                            var productJsonData = [{
+                                "id": 1,
+                                "text": "5分",
+                                "value": 10,
+                                "selected": true
+                            }, {
+                                "id": 2,
+                                "text": "10分",
+                                "value": 30
+                            }, {
+                                "id": 3,
+                                "text": "30分",
+                                "value": 100
+                            }
+                            ]
+
+                        }
+                        else if (Intmin > 43200 && Intmin < 259200) {
+                            var productJsonData = [{
+                                "id": 1,
+                                "text": "16小时",
+                                "value": 57600,
+                                "selected": true
+                            }, {
+                                "id": 2,
+                                "text": "一天",
+                                "value": 86400
+                            }, {
+                                "id": 3,
+                                "text": "30天",
+                                "value": 2592000
+                            }
+                            ]
+                            window.alert('时间跨度过大，查询会很慢...');
+                        }
+                        else if (Intmin > 4320 && Intmin < 43200) {
+                            var productJsonData = [{
+                                "id": 1,
+                                "text": "2小时",
+                                "value": 7200,
+                                "selected": true
+                            }, {
+                                "id": 2,
+                                "text": "4小时",
+                                "value": 14400
+                            }, {
+                                "id": 3,
+                                "text": "8小时",
+                                "value": 28800
+                            }
+                            ]
+                            window.alert('时间跨度过大，查询会很慢...');
+                        }
+                        else if (Intmin > 259200) {
+                            var productJsonData = [{
+                                "id": 1,
+                                "text": "16小时",
+                                "value": 57600,
+                                "selected": true
+                            }, {
+                                "id": 2,
+                                "text": "一天",
+                                "value": 86400
+                            }, {
+                                "id": 3,
+                                "text": "30天",
+                                "value": 2592000
+                            }
+                            ]
+                            window.alert('时间跨度过大，查询会很慢...');
+                        }
+                        $('#timeSpan').combobox('loadData', productJsonData);
+                    }
+                });
+                $('#startTime').datetimebox('setValue', formatDate(startDate));
+                $('#endTime').datetimebox({
+                    stopFirstChangeEvent: true,
+                    onChange: function () {
+                        var startTime = $('#startTime').datebox('getValue');
+                        var endTime = $('#endTime').datebox('getValue');
+                        var dt = new Date(startTime.replace(/-/g, "/"));
+                        var ds = new Date(endTime.replace(/-/g, "/"));
+                        var num = (ds - dt) / (1000 * 60);
+                        var min = parseInt(Math.ceil(num));
+                        var Intmin = Math.abs(min);
+                        if (Intmin > 0 && Intmin < 60) {
+                            var productJsonData = [{
+                                "id": 1,
+                                "text": "01秒",
+                                "value": 1,
+                                "selected": true
+                            }, {
+                                "id": 2,
+                                "text": "02秒",
+                                "value": 2
+                            }, {
+                                "id": 3,
+                                "text": "03秒",
+                                "value": 3
+                            }, {
+                                "id": 4,
+                                "text": "04秒",
+                                "value": 4
+                            }, {
+                                "id": 5,
+                                "text": "05秒",
+                                "value": 5
+                            }
+                            ]
+                        }
+                        else if (Intmin > 60 && Intmin <= 4320) {
+                            var productJsonData = [{
+                                "id": 1,
+                                "text": "5分",
+                                "value": 10,
+                                "selected": true
+                            }, {
+                                "id": 2,
+                                "text": "10分",
+                                "value": 30
+                            }, {
+                                "id": 3,
+                                "text": "30分",
+                                "value": 100
+                            }
+                            ]
+
+                        }
+                        else if (Intmin > 43200 && Intmin < 259200) {
+                            var productJsonData = [{
+                                "id": 1,
+                                "text": "16小时",
+                                "value": 57600,
+                                "selected": true
+                            }, {
+                                "id": 2,
+                                "text": "一天",
+                                "value": 86400
+                            }, {
+                                "id": 3,
+                                "text": "30天",
+                                "value": 2592000
+                            }
+                            ]
+                            window.alert('时间跨度过大，查询会很慢...');
+                        }
+                        else if (Intmin > 4320 && Intmin < 43200) {
+                            var productJsonData = [{
+                                "id": 1,
+                                "text": "2小时",
+                                "value": 7200,
+                                "selected": true
+                            }, {
+                                "id": 2,
+                                "text": "4小时",
+                                "value": 14400
+                            }, {
+                                "id": 3,
+                                "text": "8小时",
+                                "value": 28800
+                            }
+                            ]
+                            window.alert('时间跨度过大，查询会很慢...');
+                        }
+                        else if (Intmin > 259200) {
+                            var productJsonData = [{
+                                "id": 1,
+                                "text": "16小时",
+                                "value": 57600,
+                                "selected": true
+                            }, {
+                                "id": 2,
+                                "text": "一天",
+                                "value": 86400
+                            }, {
+                                "id": 3,
+                                "text": "30天",
+                                "value": 2592000
+                            }
+                            ]
+                            window.alert('时间跨度过大，查询会很慢...');
+                        }
+                        $('#timeSpan').combobox('loadData', productJsonData);
+                    }
+                });
+                $('#endTime').datetimebox('setValue', formatDate(endDate));
             } else {
                 //设置默认为十天的时间
                 startDate.setDate(startDate.getDate() - 10);
                 //设置下拉框
                 $('#timeSpan').combobox('loadData', energyJsonData);
+                $('#endTime').datetimebox('setValue', formatDate(endDate));
+                $('#startTime').datetimebox('setValue', formatDate(startDate));
             }
-            $('#startTime').datetimebox('setValue', formatDate(startDate));
-            $('#endTime').datetimebox('setValue', formatDate(endDate));
         }
+     
+      
 
         var plot1 = null;
         var data = [];
         var currentData = [];
-
-
         //下拉框json数据
         //能源监控下拉框加载数据
         var energyJsonData = [{
             "id": 1,
             "text": "05分钟",
-            "value":5,
+            "value": 5,
             "selected": true
         }, {
             "id": 2,
@@ -337,7 +631,36 @@
             "id": 5,
             "text": "05秒",
             "value": 5
-        }]
+        }
+        , {
+            "id": 6,
+            "text": "30分",
+            "value": 1800
+
+        }, {
+            "id": 7,
+            "text": "1小时",
+            "value": 3600
+
+        }, {
+            "id": 8,
+            "text": "2小时",
+            "value": 7200
+
+        }
+        , {
+            "id": 8,
+            "text": "8小时",
+            "value": 28800
+
+        }
+        , {
+            "id": 8,
+            "text": "一天",
+            "value": 86400
+
+        }
+        ]
         // chart 选项
 
         var chartOptions = {
@@ -405,7 +728,7 @@
                 }
             },
             canvasOverlay: {
-                show:true
+                show: true
             }
         };
 
@@ -443,7 +766,12 @@
             var timeSpan = $('#timeSpan').combobox('getValue');
 
             var dataToSend = "{id:'" + variableId + "', startTime:'" + startTime.toString() + "', endTime:'" + endTime.toString() + "', timeSpan:'" + timeSpan + "'}";
-
+            var win = $.messager.progress(
+                {
+                    title: '请稍后',
+                    msg: '数据载入中...'
+                }
+                );
             $.ajax({
                 type: "POST",
                 url: queryUrl,
@@ -454,6 +782,25 @@
                     formatData(msg.d);
                 }
             });
+        }
+        var markItem=0;
+        function getDataAll()
+        {
+            if (markItem == 0) {
+                $('#sliderId').slider('disable');
+                currentData = data.slice(data, data.length);
+                plotChart();
+                markItem = 1;
+            }
+            else {
+                $('#sliderId').slider('enable');
+                currentData = data.slice(data.length - DATA_POINT_PER_SCREEN, data.length);
+                // 设置滚动条到最右，防止看不清楚，设置为99
+                $('#sliderId').slider('setValue', 100);
+                $.messager.progress('close');
+                plotChart();
+                markItem = 0;
+            }
         }
         function getTrendName() {
             var queryUrl = "TrendlineRenderer.aspx/GetTrendName";
@@ -521,19 +868,19 @@
                 }
             });
         }
-
+        var m_Parameter1 = "";
         function formatData(json) {
             data = [];
             for (var date in json) {
                 data.push([date, json[date]]);
             }
-
+            m_Parameter1=GetDataHtml(data);
             DATA_POINT_PER_SCREEN = data.length / 10;
             currentData = data.slice(data.length - DATA_POINT_PER_SCREEN, data.length);
 
             // 设置滚动条到最右，防止看不清楚，设置为99
             $('#sliderId').slider('setValue', 100);
-
+            $.messager.progress('close');
             plotChart();
         }
 
@@ -542,9 +889,52 @@
                 return;
 
             value = (value * (data.length - DATA_POINT_PER_SCREEN) / 100);
-            currentData = data.slice(value, value + DATA_POINT_PER_SCREEN);
-
+            currentData = data.slice(value+1, value + DATA_POINT_PER_SCREEN);
             plotChart();
+        }
+        function ExportFileFun() {
+            var m_FunctionName = "ExcelStream";
+            m_Parameter1 = m_DataGridTableHtml;
+            var m_ReplaceAlllt = new RegExp("<", "g");
+            var m_ReplaceAllgt = new RegExp(">", "g");
+            m_Parameter1 = m_Parameter1.replace(m_ReplaceAlllt, "&lt;");
+            m_Parameter1 = m_Parameter1.replace(m_ReplaceAllgt, "&gt;");
+            var form = $("<form id = 'ExportFile'>");   //定义一个form表单
+            form.attr('style', 'display:none');   //在form表单中添加查询参数
+            form.attr('target', '');
+            form.attr('method', 'post');
+            form.attr('action', "TrendlineRenderer.aspx");
+            var input_Method = $('<input>');
+            input_Method.attr('type', 'hidden');
+            input_Method.attr('name', 'myFunctionName');
+            input_Method.attr('value', m_FunctionName);
+            var input_Data1 = $('<input>');
+            input_Data1.attr('type', 'hidden');
+            input_Data1.attr('name', 'myParameter1');
+            input_Data1.attr('value', m_Parameter1);
+            $('body').append(form);  //将表单放置在web中 
+            form.append(input_Method);   //将查询参数控件提交到表单上
+            form.append(input_Data1);   //将查询参数控件提交到表单上
+            form.submit();
+            //释放生成的资源
+            form.remove();
+        }
+        var m_DataGridTableHtml = "";
+        function GetDataHtml(data)
+        {
+            var m_TitleSpan = 2;
+            var myTitleName="历史数据表"
+            var m_Column = "数据时间";
+            var m_ColumnData = "数据明细";
+            var m_ColumnNamesHtml = "";
+            var m_ColumnsCount = data.length;
+            m_ColumnNamesHtml = m_ColumnNamesHtml + '<tr>' + '<td style = "border:0.1pt solid black; text-align:center;">' + m_Column + '</td>' + '<td style = "border:0.1pt solid black; text-align:center;">' + m_ColumnData + '</td>' + '</tr>';
+            for (var i = 0; i < m_ColumnsCount; i++)
+            {
+                m_ColumnNamesHtml = m_ColumnNamesHtml + '<tr>' + '<td style = "border:0.1pt solid black; text-align:center;">' + data[i][0] + '</td>' + '<td style = "border:0.1pt solid black; text-align:center;">' + data[i][1] + '</td>' + '</tr>';
+            }
+            var m_TitleHtml = '<tr><td colspan = ' + m_TitleSpan + ' style = "font-size:18pt; text-align:center; font-weight:bold;">' + myTitleName + '</td></tr>';
+            m_DataGridTableHtml = '<table style = "border:0px;margin:0px;border-collapse:collapse;border-spacing:0px;padding:0px;">' + m_TitleHtml + m_ColumnNamesHtml + '</table>';
         }
     </script>
 </head>
@@ -557,20 +947,36 @@
             <a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-help'" onclick="$('#dlgHelp').dialog('open')">帮助</a>
         </div>
         <div class="easyui-panel" style="width: 100%; margin-top: -2px; padding: 4px;">
-            <input id="startTime" class="easyui-datetimebox" style="width: 145px" />
-            -
-            <input id="endTime" class="easyui-datetimebox" style="width: 145px" />
+            <table>
+                <tr>
+                    <td>
+            <input id="startTime" class="easyui-datetimebox" style="width: 145px" /> </td>
+                 <td>
+            <input id="endTime" class="easyui-datetimebox" style="width: 145px" /></td>
+                    <td>
             <select id="timeSpan" class="easyui-combobox" data-options="valueField:'value',textField:'text',editable:false,panelHeight:'auto'" style="width: 80px;">
                 <option value="5">05分钟</option>
                 <option value="15">15分钟</option>
                 <option value="60">01小时</option>
                 <option value="360">06小时</option>
             </select>
+                        </td>
+
             <!--<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-search'">查询</a>-->
-            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'" onclick="getData()">刷新</a>
-            <a href="javascript:void(0)" name="lineFilled" class="easyui-linkbutton" data-options="plain:true,toggle:true">填充</a>
-            <a href="javascript:void(0)" name="lineTrend" class="easyui-linkbutton" data-options="plain:true,toggle:true">趋势</a>
-            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true" onclick="$('#dlgLimit').dialog('open')">上下限</a>
+            <td>标签名称</td>
+             <td>
+            <input id="tagName" class="easyui-textbox" required="required"readonly="readonly" style="width:140px"/></td>
+               <td>标签描述</td>
+             <td><input id="tagDescription" class="easyui-textbox" required="required"readonly="readonly" style="width:140px"/></td>
+                    <td>
+            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'" onclick="getData()">刷新</a></td>
+                    <td>
+            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-remove'"onclick="getDataAll()">切换</a></td>
+            <td><a href="javascript:void(0)" name="lineFilled"class="easyui-linkbutton" data-options="plain:true,toggle:true">填充</a></td>
+            <td><a href="javascript:void(0)" name="lineTrend" class="easyui-linkbutton" data-options="plain:true,toggle:true">趋势</a></td>
+            <td><a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true" onclick="$('#dlgLimit').dialog('open')">上下限</a></td>
+        </tr>
+         </table>
         </div>
     </div>
     <div data-options="region:'south',border:false,split:true" style="height: 80px; display: none">
@@ -700,6 +1106,7 @@
                                     <input name="upperAuto" value="1" type="radio" checked />自动适应</li>
                                 <li>
                                     <input name="upperAuto" value="2" type="radio" />手动设置 |
+                                   
                                     <input name="upperLimit" type="text" value="0" /></li>
                             </ul>
 
@@ -711,6 +1118,7 @@
                                     <input name="lowerAuto" value="1" type="radio" checked />自动适应</li>
                                 <li>
                                     <input name="lowerAuto" value="2" type="radio" />手动设置 |
+                                   
                                     <input name="lowerLimit" type="text" value="0" /></li>
                             </ul>
 
@@ -722,7 +1130,7 @@
                     <div id="menAction" style="width: 100px;">
                         <div onclick="$('#dlgLimit').dialog('open')">上下限设置</div>
                         <div class="menu-sep"></div>
-                        <div>打印</div>
+                        <div onclick="ExportFileFun();">数据导出</div>
                         <div class="menu-sep"></div>
                         <div>保存</div>
                     </div>

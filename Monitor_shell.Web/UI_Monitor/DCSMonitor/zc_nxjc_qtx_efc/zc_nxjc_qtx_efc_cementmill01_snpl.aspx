@@ -48,7 +48,7 @@
    <div id="TextGround"style="font-size:large;padding-left:162px;padding-bottom:200px;padding-right:500px;padding-top:0px;width:1480px;height: 760px;"></div>   
         <div id="Picture"style="position: absolute; top: 4px; left: 138px; height: 20px; width: 20px; background-size:100% auto"></div> 
     <%--标签粘贴处--%>
-<%--        <button onclick="CheckTags()">检查标签</button>--%>
+        <%--<button onclick="CheckTags()">检查标签</button>--%>
       <%--张成凤--%>
 
 

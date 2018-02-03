@@ -5,9 +5,13 @@ using Monitor_shell.Service.ProcessEnergyMonitor;
 using Monitor_shell.Service.ProcessEnergyMonitor.MonitorShell;
 using Monitor_shell.Service.ProcessEnergyMonitor.RunningState;
 using Monitor_shell.Service.TrendTool;
+using Monitor_shell.Infrastructure.Configuration;
+using Monitor_shell.Service.Repository;
+using SqlServerDataAdapter;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -303,6 +307,47 @@ namespace Monitor_shell.Web.UI_Monitor.ProcessEnergyMonitor.MonitorShell
 
             return result;
         }
+        [WebMethod]
+        public Dictionary<string,string> GetRunningTime(string ids)
+        {
+            string organizationIdDcs = "";
+            string organization = "";
+            Dictionary<string, string> EnergyTime = new Dictionary<string, string>();
+            string[] iditems = ids.Split(',');
+            for (int i = 0; i < iditems.Length; i++)
+            {
+                string[] itemArry = iditems[i].Split('>');
+                organization = itemArry[0];
+                string[] organizationArry = organization.Split('_');
+                if (organizationArry.Length <5)
+                {
+                    continue;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            string connectionString = ConnectionStringFactory.NXJCConnectionString;
+            ISqlServerDataFactory dataFactory = new SqlServerDataFactory(connectionString);
+            string mySql = @"select A.[MeterDatabase],A.[DCSProcessDatabase] from system_Database AS A, system_Organization AS B
+                             where A.[DatabaseID]=B.[DatabaseID] and B.organizationid=@IdInformation
+                                      ";
+            SqlParameter myParameter = new SqlParameter("@IdInformation", organization);
+            DataTable table = dataFactory.Query(mySql, myParameter);
+            string organizationId=table.Rows[0][0].ToString();
+            organizationIdDcs = table.Rows[0][0].ToString();
+            if (organizationIdDcs == "Db_02_01")
+            {
+              organizationIdDcs = "zc_nxjc_qtx_efc";
+            }
+            string dataBaseName=table.Rows[0][1].ToString();
+            EnergyTime = RealtimeTagValueService.GetDcsTime(organizationIdDcs, dataBaseName);
+            string mySqlNew = @"select [vDate] from {0}.[dbo].[RealtimeAmmeter]";
+            DataTable tableAmmater = dataFactory.Query(string.Format(mySqlNew,organizationId));
+            EnergyTime.Add("Ammatertime", tableAmmater.Rows[0][0].ToString());
+            return EnergyTime;
+        }
 
         [WebMethod]
         public string GetAmmeterStatisticData(string organizationId, string variableId)
@@ -365,7 +410,40 @@ namespace Monitor_shell.Web.UI_Monitor.ProcessEnergyMonitor.MonitorShell
             }
             return json;
         }
+        /// <summary>
+        /// 增加分步电耗公式展示
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod]
+        public string GetSumProcessStatisticData(string organizationId, string variableId, string statisticType, string sumProcessIds)
+        {
+            string json = "";
+            DataTable m_DataTable = new DataTable();
+            m_DataTable.Columns.Add("FactorName", typeof(string));
+            m_DataTable.Columns.Add("FactorValue", typeof(decimal));
 
+            string[] m_SumProcessIds = sumProcessIds.Split(',');
+            for (int i = 0; i < m_SumProcessIds.Length; i++)
+            {
+                string[] m_SumProcessIdsTemp = m_SumProcessIds[i].Split('>');
+                m_SumProcessIds[i] = m_SumProcessIdsTemp.Length > 1 ? m_SumProcessIdsTemp[1] : "";
+            }
+            string m_NxjcconnString = Monitor_shell.Infrastructure.Configuration.ConnectionStringFactory.NXJCConnectionString;
+            Monitor_shell.Service.ProcessEnergyMonitor.MonitorShell.SumProcessCDMElectricityConsumptionProvider m_SumProcess = new SumProcessCDMElectricityConsumptionProvider(m_NxjcconnString);
+
+            Standard_GB16780_2012.Model_CaculateValue m_Model_CaculateValue = m_SumProcess.GetSumProcessFormula(organizationId, variableId, statisticType, m_SumProcessIds);
+            if (m_Model_CaculateValue != null)
+            {
+                for (int i = 0; i < m_Model_CaculateValue.CaculateFactor.Count; i++)
+                {
+                    m_DataTable.Rows.Add(new object[] { m_Model_CaculateValue.CaculateFactor[i].FactorName, m_Model_CaculateValue.CaculateFactor[i].FactorValue });
+                }
+                string m_DataJson = EasyUIJsonParser.DataGridJsonParser.DataTableToJson(m_DataTable);
+                json = "{\"formula\":\"" + m_Model_CaculateValue.CaculateFormula + "\",\"CaculateName\":\"" + m_Model_CaculateValue.CaculateName + "\",\"data\":" + m_DataJson + "}";
+            }
+
+            return json;
+        }
         [WebMethod]
         public string GetAlarmData()
         {

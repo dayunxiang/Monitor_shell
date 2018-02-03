@@ -59,45 +59,92 @@ namespace Monitor_shell.Service.ProcessEnergyMonitor.DCSMonitorShell
                 if (tagSet != "")
                 {
                     string[] tagArray = tagSet.Trim(',').Split(',');//去除前导匹配项和尾部匹配项的“，”，再拆分标签
-                    string mySql = @"select 
-	                                *
+                    string[] tagEnviornment = tagArray[0].Split('_');
+                    string tagname = tagEnviornment[tagEnviornment.Length - 1];
+                    List<string> tagArrayNew = new List<string>();
+                    if (tagEnviornment[tagEnviornment.Length - 1] == "TenMinutes" || tagEnviornment[tagEnviornment.Length - 1] == "TwentyMinutes" || tagEnviornment[tagEnviornment.Length - 1] == "OneHour")
+                    {
+                        for (int i = 0; i < tagArray.Length; i++)
+                        {
+                            string t_tag = tagArray[i];
+                            tagEnviornment = t_tag.Split('_');
+                            StringBuilder tagBulider = new StringBuilder();
+                            for (int j = 0; j < tagEnviornment.Length - 1; j++)
+                            {
+                                tagBulider.Append(tagEnviornment[j] + "_");
+                            }
+                            tagBulider.Remove(tagBulider.Length - 1, 1);
+                            string id = tagBulider.ToString();
+                            tagArrayNew.Add(id);
+                        }
+                    }
+                    else
+                    {
+                        foreach (string t_tag_new in tagArray)
+                        {
+                            tagArrayNew.Add(t_tag_new);
+                        }
+                    }
+
+                    string mySql = @"select A.TagName,B.Max as MaxRange,B.Min as MinRange,B.AlarmH as Value_H,B.AlarmHH as Value_HH
                                 from 
-	                                {0}.[dbo].DCSContrast_Gauges A
-                                where
-	                                A.Enabled='true'";
+	                                {0}.[dbo].[View_DCSContrast] A JOIN [NXJC].[dbo].[realtime_KeyIndicatorsMonitorContrast] B on A.[VariableName]=B.[Tags] where
+                               ";
                     StringBuilder sqlBuilder = new StringBuilder(mySql);
-                    sqlBuilder.Append(" and (");
+                    //sqlBuilder.Append(" where ");
                     List<SqlParameter> parameterList = new List<SqlParameter>();
                     List<string> tagList = new List<string>();
-                    foreach (string t_tag in tagArray)
+                    foreach (string t_tag in tagArrayNew)
                     {
                         if (!tagList.Contains(t_tag.Trim()))//将重复的标签去掉
                         {
                             //sqlBuilder.Append("DCSName+'_'+TagName=@" + t_tag + " or ");
-                            sqlBuilder.Append("TagName=@" + t_tag + " or ");
+                            sqlBuilder.Append("A.TagName=@" + t_tag + " or ");
                             parameterList.Add(new SqlParameter(t_tag, t_tag));
                             tagList.Add(t_tag.Trim());
                         }
                     }
                     sqlBuilder.Remove(sqlBuilder.Length - 4, 4);
-                    sqlBuilder.Append(")");
+                    //sqlBuilder.Append(")");
 
                     DataTable table = dataFactory.Query(string.Format(sqlBuilder.ToString(), factoryDBName), parameterList.ToArray());
-
-                    foreach (DataRow dr in table.Rows)
+                    if (tagname == "TenMinutes" || tagname == "TwentyMinutes" || tagname == "OneHour")
                     {
-                        GaugesInfo gaugesObj = new GaugesInfo();
-                        gaugesObj.TagName = dr["TagName"].ToString().Trim();
-                        gaugesObj.OrganiazationName = organizationId_new;
-                        //gaugesObj.DCSName = dr["DCSName"].ToString().Trim();
-                        gaugesObj.TagDescription = dr["TagDescription"].ToString().Trim();
-                        gaugesObj.MaxRange = dr["MaxRange"] is DBNull ? decimal.MaxValue : Convert.ToDecimal(dr["MaxRange"]);
-                        gaugesObj.MinRange = dr["MinRange"] is DBNull ? decimal.MaxValue : Convert.ToDecimal(dr["MinRange"]);
-                        gaugesObj.Value_HH = dr["Value_HH"] is DBNull ? decimal.MaxValue : Convert.ToDecimal(dr["Value_HH"]);
-                        gaugesObj.Value_H = dr["Value_H"] is DBNull ? decimal.MaxValue : Convert.ToDecimal(dr["Value_H"]);
-                        gaugesObj.Value_L = dr["Value_L"] is DBNull ? decimal.MinValue : Convert.ToDecimal(dr["Value_L"]);
-                        gaugesObj.Value_LL = dr["Value_LL"] is DBNull ? decimal.MinValue : Convert.ToDecimal(dr["Value_LL"]);
-                        gaugesInfoList.Add(gaugesObj);
+                        foreach (DataRow dr in table.Rows)
+                        {
+                            GaugesInfo gaugesObj = new GaugesInfo();
+                            gaugesObj.TagName = dr["TagName"].ToString().Trim() + "_" + tagname;
+                            gaugesObj.OrganiazationName = organizationId_new;
+                            //gaugesObj.DCSName = dr["DCSName"].ToString().Trim();
+                            //gaugesObj.TagDescription = dr["TagDescription"].ToString().Trim();
+                            gaugesObj.MaxRange = dr["MaxRange"] is DBNull ? decimal.MaxValue : Convert.ToDecimal(dr["MaxRange"]);
+                            gaugesObj.MinRange = dr["MinRange"] is DBNull ? decimal.MaxValue : Convert.ToDecimal(dr["MinRange"]);
+                            gaugesObj.Value_HH = dr["Value_HH"] is DBNull ? decimal.MaxValue : Convert.ToDecimal(dr["Value_HH"]);
+                            gaugesObj.Value_H = dr["Value_H"] is DBNull ? decimal.MaxValue : Convert.ToDecimal(dr["Value_H"]);
+                            //gaugesObj.Value_L = dr["Value_L"] is DBNull ? decimal.MinValue : Convert.ToDecimal(dr["Value_L"]);
+                            //gaugesObj.Value_LL = dr["Value_LL"] is DBNull ? decimal.MinValue : Convert.ToDecimal(dr["Value_LL"]);
+                            gaugesInfoList.Add(gaugesObj);
+                        }
+
+                    }
+
+                    else
+                    {
+                        foreach (DataRow dr in table.Rows)
+                        {
+                            GaugesInfo gaugesObj = new GaugesInfo();
+                            gaugesObj.TagName = dr["TagName"].ToString().Trim();
+                            gaugesObj.OrganiazationName = organizationId_new;
+                            //gaugesObj.DCSName = dr["DCSName"].ToString().Trim();
+                            //gaugesObj.TagDescription = dr["TagDescription"].ToString().Trim();
+                            gaugesObj.MaxRange = dr["MaxRange"] is DBNull ? decimal.MaxValue : Convert.ToDecimal(dr["MaxRange"]);
+                            gaugesObj.MinRange = dr["MinRange"] is DBNull ? decimal.MaxValue : Convert.ToDecimal(dr["MinRange"]);
+                            gaugesObj.Value_HH = dr["Value_HH"] is DBNull ? decimal.MaxValue : Convert.ToDecimal(dr["Value_HH"]);
+                            gaugesObj.Value_H = dr["Value_H"] is DBNull ? decimal.MaxValue : Convert.ToDecimal(dr["Value_H"]);
+                            //gaugesObj.Value_L = dr["Value_L"] is DBNull ? decimal.MinValue : Convert.ToDecimal(dr["Value_L"]);
+                            //gaugesObj.Value_LL = dr["Value_LL"] is DBNull ? decimal.MinValue : Convert.ToDecimal(dr["Value_LL"]);
+                            gaugesInfoList.Add(gaugesObj);
+                        }
                     }
                 }
             }
@@ -386,10 +433,20 @@ namespace Monitor_shell.Service.ProcessEnergyMonitor.DCSMonitorShell
             {
                 string[] sb = relatedTagArray[0].Split('_');
                 StringBuilder sumStr = new StringBuilder();
-                sumStr.Append(factoryId);
-                sumStr.Append("_");
-                sumStr.Append(sb[0]);
-                sumStr_new = sumStr.ToString();
+                if (factoryId == "zc_nxjc_qtx_efc")
+                {
+                    sumStr.Append("Db_02_01");
+                    sumStr.Append("_");
+                    sumStr.Append(sb[0]);
+                    sumStr_new = sumStr.ToString();
+                }
+                else
+                {
+                    sumStr.Append(factoryId);
+                    sumStr.Append("_");
+                    sumStr.Append(sb[0]);
+                    sumStr_new = sumStr.ToString();
+                }
                 dcsTime = RealtimeTagValueService.GetDcsTime(factoryId, sumStr_new);
             }
             return dcsTime;

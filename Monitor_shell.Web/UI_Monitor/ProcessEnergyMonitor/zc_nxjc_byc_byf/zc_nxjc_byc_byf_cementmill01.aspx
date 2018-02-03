@@ -187,10 +187,7 @@
                 <td><span id="zc_nxjc_byc_byf_cementmill01>cementMillFeedSaid>Power" class="mchart"></span></td>
             </tr>
         </table>
-    
-
     <div id="htmlContainer"></div>
-
     <!--1#水泥磨主电机运行信号-->
     <div class="imageContainer equipmentInfo" data-equipmentid="cementMillMainMotor" id="zc_nxjc_byc_byf_cementmill01>cementMillMainMotor>RunningState" style="position:absolute; top: 554px; left: 756px; height: 20px; width: 19px;"></div>
     <!--1#磨选粉机变频控制柜运行-->
@@ -225,7 +222,7 @@
     <div class="imageContainer equipmentInfo" data-equipmentid="wetFlyAsh" id="zc_nxjc_byc_byf_cementmill01>wetFlyAsh>RunningState" style="position:absolute; top: 466px; left: 249px; height: 20px; width: 19px;"></div>
       <!--1#水泥磨湿氟石膏喂料称-->
     <div class="imageContainer equipmentInfo" data-equipmentid="fluorineGypsum" id="zc_nxjc_byc_byf_cementmill01>fluorineGypsum>RunningState" style="position:absolute; top: 466px; left: 313px; height: 20px; width: 19px;"></div>
-
+        </div>
     </body>
 </html>
 

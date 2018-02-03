@@ -67,7 +67,7 @@
             </tr>
         </table>
          <!--辅助皮带-->
-        <table class="mytable" style="position: absolute; top: 82px; left: 376px;">
+        <table class="mytable" style="position: absolute; top: 75px; left: 402px;">
             <tr>
                 <td><span id="zc_nxjc_qtx_efc_clinker02>auxiliaryBeltPower>ElectricityConsumption" class="mchart"></span></td>
             </tr>
@@ -127,7 +127,7 @@
             </tr>
         </table>
           <!--铁粉顶收尘风机-->
-        <table class="mytable" style="position: absolute; top: 205px; left: 391px;">
+        <table class="mytable" style="position: absolute; top: 190px; left: 399px;">
             <tr>
                 <td><span id="zc_nxjc_qtx_efc_clinker02>ironLibraryDustCollectingFan>ElectricityConsumption" class="mchart"></span></td>
             </tr>
@@ -139,7 +139,7 @@
             </tr>
         </table>
           <!--输送带上收尘-->
-        <table class="mytable" style="position: absolute; top: 301px; left: 393px;">
+        <table class="mytable" style="position: absolute; top: 305px; left: 401px;">
             <tr>
                 <td><span id="zc_nxjc_qtx_efc_clinker02>rawMaterialCollectingFan>ElectricityConsumption" class="mchart"></span></td>
             </tr>
@@ -150,8 +150,59 @@
                 <td><span id="zc_nxjc_qtx_efc_clinker02>rawMaterialCollectingFan>Power" class="mchart"></span></td>
             </tr>
         </table>
+                   <%--入辊压机皮带--%>
+        <table class="mytable" style="position: absolute; top: 305px; left: 474px; height: 24px;">
+            <tr>
+                <td><span id="zc_nxjc_qtx_efc_clinker02>rollerCaptainBelt>ElectricityConsumption" class="mchart"></span></td>
+            </tr>
+            <tr>
+                <td><span id="zc_nxjc_qtx_efc>rollerCaptainBelt>Current" class="mchart"></span></td>
+            </tr>
+            <tr>
+                <td><span id="zc_nxjc_qtx_efc_clinker02>rollerCaptainBelt>Power" class="mchart"></span></td>
+            </tr>
+        </table>
+        
+        <%--选粉机--%>
+        <table class="mytable" style="position: absolute; top: 305px; left: 547px; height: 24px;">
+            <tr>
+                <td><span id="zc_nxjc_qtx_efc_clinker02>powderSelectingStorehouse>ElectricityConsumption" class="mchart"></span></td>
+            </tr>
+            <tr>
+                <td><span id="zc_nxjc_qtx_efc>powderSelectingStorehouse>Current" class="mchart"></span></td>
+            </tr>
+            <tr>
+                <td><span id="zc_nxjc_qtx_efc_clinker02>powderSelectingStorehouse>Power" class="mchart"></span></td>
+            </tr>
+        </table>
+        <%--斗提361.BE02--%>
+        <table class="mytable" style="position: absolute; top: 617px; left: 405px;">
+            <tr>
+                <td><span id="zc_nxjc_qtx_efc_clinker02>Hoist361BE02>ElectricityConsumption" class="mchart"></span></td>
+            </tr>
+            <tr>
+                <td><span id="zc_nxjc_qtx_efc>Hoist361BE02>Current" class="mchart"></span></td>
+            </tr>
+            <tr>
+                <td><span id="zc_nxjc_qtx_efc_clinker02>Hoist361BE02>Power" class="mchart"></span></td>
+            </tr>
+        </table>
+
+
+     <!--斗提361.BE01-->
+        <table class="mytable" style="position: absolute; top: 617px; left: 475px;">
+            <tr>
+                <td><span id="zc_nxjc_qtx_efc_clinker02>Hoist361BE01>ElectricityConsumption" class="mchart"></span></td>
+            </tr>
+            <tr>
+                <td><span id="zc_nxjc_qtx_efc>Hoist361BE01>Current" class="mchart"></span></td>
+            </tr>
+            <tr>
+                <td><span id="zc_nxjc_qtx_efc_clinker02>Hoist361BE01>Power" class="mchart"></span></td>
+            </tr>
+        </table>
         <!--输送带-->
-         <table class="mytable" style="position: absolute; top: 392px; left: 252px;">
+         <table class="mytable" style="position: absolute; top: 399px; left: 230px;">
             <tr>
                 <td><span id="zc_nxjc_qtx_efc_clinker02>rawMaterialStorageBeltMachine>ElectricityConsumption" class="mchart"></span></td>
             </tr>
@@ -248,7 +299,7 @@
             </tr>
         </table>
           <!--均化库袋收控制箱-->
-        <table class="mytable" style="position: absolute; top: 429px; left: 996px;">
+        <table class="mytable" style="position: absolute; top: 396px; left: 993px;">
             <tr>
                 <td><span id="zc_nxjc_qtx_efc_clinker03>homogenizationDustCollectors>ElectricityConsumption" class="mchart"></span></td>
             </tr>
@@ -260,7 +311,7 @@
             </tr>
         </table>
        <!--均化库收尘风机-->
-        <table class="mytable" style="position: absolute; top: 508px; left: 996px; height: 59px;">
+        <table class="mytable" style="position: absolute; top: 483px; left: 991px; height: 59px;">
             <tr>
                 <td><span id="zc_nxjc_qtx_efc_clinker03>homogenizationDustCollectFan>ElectricityConsumption" class="mchart"></span></td>
             </tr>
@@ -272,7 +323,7 @@
             </tr>
         </table>
           <!--窑尾袋收尘-->
-        <table class="mytable" style="position: absolute; top: 493px; left: 1232px;">
+        <table class="mytable" style="position: absolute; top: 482px; left: 1230px;">
             <tr>
                 <td><span id="zc_nxjc_qtx_efc_clinker02>bagdustcollector>ElectricityConsumption" class="mchart"></span></td>
             </tr>
@@ -284,7 +335,7 @@
             </tr>
         </table>
            <!--3#螺旋输送-->
-        <table class="mytable" style="position: absolute; top: 493px; left: 1118px;">
+        <table class="mytable" style="position: absolute; top: 483px; left: 1113px;">
             <tr>
                 <td><span id="zc_nxjc_qtx_efc_clinker02>wasteGasDustCollectingFan03>ElectricityConsumption" class="mchart"></span></td>
             </tr>
@@ -295,8 +346,20 @@
                 <td><span id="zc_nxjc_qtx_efc_clinker02>wasteGasDustCollectingFan03>Power" class="mchart"></span></td>
             </tr>
         </table>
-        <!--主电机-->
-        <table class="mytable" style="position: absolute; top: 608px; left: 515px;">
+        <!--辊压机固定辊电机-->
+        <table class="mytable" style="position: absolute; top: 617px; left: 551px;">
+            <tr>
+                <td><span id="zc_nxjc_qtx_efc_clinker02>rollingMachineSettledRoller>ElectricityConsumption" class="mchart"></span></td>
+            </tr>
+            <tr>
+                <td><span id="zc_nxjc_qtx_efc>rollingMachineSettledRoller>Current" class="mchart"></span></td>
+            </tr>
+            <tr>
+                <td><span id="zc_nxjc_qtx_efc_clinker02>rollingMachineSettledRoller>Power" class="mchart"></span></td>
+            </tr>
+        </table>
+          <!--辊压机活动辊电机-->
+        <table class="mytable" style="position: absolute; top: 616px; left: 621px;">
             <tr>
                 <td><span id="zc_nxjc_qtx_efc_clinker02>rawMealGrindingMainMotor>ElectricityConsumption" class="mchart"></span></td>
             </tr>
@@ -427,10 +490,19 @@
     <div class="imageContainer equipmentInfo" data-equipmentid="homogenizationDustCollectFan" id="zc_nxjc_qtx_efc_clinker03>homogenizationDustCollectFan>RunningState" style="position: absolute; height: 20px; width: 19px; top: 472px; left: 950px;"></div>
      <!--循环风机运行-->
     <div class="imageContainer equipmentInfo" data-equipmentid="circulatingFan" id="zc_nxjc_qtx_efc_clinker02>circulatingFan>RunningState" style="position: absolute; height: 20px; width: 19px; top: 299px; left: 800px;"></div>
-    <!--原料磨主电机-->
-    <div class="imageContainer equipmentInfo" data-equipmentid="rawMealGrindingMainMotor" id="zc_nxjc_qtx_efc_clinker02>rawMealGrindingMainMotor>RunningState" style="position: absolute; height: 20px; width: 19px; top: 561px; left: 545px;"></div>
-    <!--原料磨选粉机电机-->
-    <div class="imageContainer equipmentInfo" data-equipmentid="powderSelectingMachine" id="zc_nxjc_qtx_efc_clinker02>powderSelectingMachine>RunningState" style="position: absolute; height: 20px; width: 19px; top: 497px; left: 542px;"></div>
+    <!--辊压机固定辊电机-->
+    <div class="imageContainer equipmentInfo" data-equipmentid="rollingMachineSettledRoller" id="zc_nxjc_qtx_efc_clinker02>rollingMachineSettledRoller>RunningState" style="position: absolute; height: 20px; width: 19px; top: 544px; left: 551px;"></div>
+    <!--辊压机活动辊电机-->
+    <div class="imageContainer equipmentInfo" data-equipmentid="rawMealGrindingMainMotor" id="zc_nxjc_qtx_efc_clinker02>rawMealGrindingMainMotor>RunningState" style="position: absolute; height: 20px; width: 19px; top: 544px; left: 578px;"></div>
+    <!--斗提361.BE01-->
+    <div class="imageContainer equipmentInfo" data-equipmentid="Hoist361BE01" id="zc_nxjc_qtx_efc_clinker02>Hoist361BE01>RunningState" style="position: absolute; height: 20px; width: 19px; top: 410px; left: 512px;"></div>
+     <!--斗提361.BE02-->
+    <div class="imageContainer equipmentInfo" data-equipmentid="Hoist361BE02" id="zc_nxjc_qtx_efc_clinker02>Hoist361BE02>RunningState" style="position: absolute; height: 20px; width: 19px; top: 477px; left: 474px;"></div>
+     <!--选粉机-->
+    <div class="imageContainer equipmentInfo" data-equipmentid="powderSelectingStorehouse" id="zc_nxjc_qtx_efc_clinker02>powderSelectingStorehouse>RunningState" style="position: absolute; height: 20px; width: 19px; top: 390px; left: 438px;"></div>
+     <!--入辊压机皮带-->
+    <div class="imageContainer equipmentInfo" data-equipmentid="rollerCaptainBelt" id="zc_nxjc_qtx_efc_clinker02>rollerCaptainBelt>RunningState" style="position: absolute; height: 20px; width: 19px; top: 428px; left: 407px;"></div>
+
      <!--窑尾排风机运行-->
     <div class="imageContainer equipmentInfo" data-equipmentid="kilnTailExhaustFan" id="zc_nxjc_qtx_efc_clinker02>kilnTailExhaustFan>RunningState" style="position: absolute; height: 20px; width: 19px; top: 351px; left: 1242px;"></div>
     <!--窑尾高温风机运行-->

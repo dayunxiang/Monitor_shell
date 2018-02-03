@@ -11,52 +11,55 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/AutoMapper.dll">
-      <publishTime>03/28/2015 18:10:20</publishTime>
+      <publishTime>03/28/2015 18:10:18</publishTime>
     </File>
     <File Include="bin/AutoSetParameters.dll">
       <publishTime>10/10/2015 14:31:58</publishTime>
     </File>
     <File Include="bin/EasyUIJsonParser.dll">
-      <publishTime>01/18/2016 14:08:50</publishTime>
+      <publishTime>09/12/2015 14:36:52</publishTime>
     </File>
     <File Include="bin/EnergyConsumption.dll">
-      <publishTime>01/18/2016 14:08:50</publishTime>
+      <publishTime>01/18/2016 14:08:49</publishTime>
     </File>
     <File Include="bin/InternalMemeryRestore.dll">
-      <publishTime>01/18/2016 14:08:50</publishTime>
+      <publishTime>01/18/2016 14:08:49</publishTime>
     </File>
     <File Include="bin/mDbDataAdaper.dll">
-      <publishTime>04/04/2016 12:02:42</publishTime>
+      <publishTime>04/04/2016 12:02:41</publishTime>
     </File>
     <File Include="bin/Monitor_shell.Infrastructure.dll">
-      <publishTime>04/19/2017 16:01:08</publishTime>
+      <publishTime>01/25/2018 16:38:55</publishTime>
     </File>
     <File Include="bin/Monitor_shell.Service.dll">
-      <publishTime>05/04/2017 08:53:21</publishTime>
+      <publishTime>01/25/2018 16:38:56</publishTime>
     </File>
     <File Include="bin/Monitor_shell.Web.dll">
-      <publishTime>05/04/2017 08:53:23</publishTime>
+      <publishTime>01/25/2018 18:05:39</publishTime>
     </File>
     <File Include="bin/SqlServerDataAdapter.dll">
-      <publishTime>07/29/2015 10:56:06</publishTime>
+      <publishTime>07/29/2015 10:56:04</publishTime>
     </File>
     <File Include="bin/Standard_GB16780-2012.dll">
-      <publishTime>10/10/2015 14:05:34</publishTime>
+      <publishTime>04/15/2016 16:36:42</publishTime>
     </File>
     <File Include="bin/StatisticalReport.Infrastructure.dll">
-      <publishTime>01/18/2016 14:08:50</publishTime>
+      <publishTime>01/18/2016 14:08:49</publishTime>
+    </File>
+    <File Include="bin/UpDownLoadFiles.dll">
+      <publishTime>03/28/2015 18:10:18</publishTime>
     </File>
     <File Include="bin/WebStyleBaseForEnergy.dll">
-      <publishTime>01/18/2016 14:08:50</publishTime>
+      <publishTime>07/06/2017 16:05:41</publishTime>
     </File>
     <File Include="bin/WebUserContorls.Web.dll">
-      <publishTime>10/11/2015 21:53:58</publishTime>
+      <publishTime>10/11/2015 21:53:56</publishTime>
     </File>
     <File Include="bin/WebUserControls.Infrastructure.dll">
-      <publishTime>10/11/2015 21:53:56</publishTime>
+      <publishTime>10/11/2015 21:53:54</publishTime>
     </File>
     <File Include="bin/WebUserControls.Service.dll">
-      <publishTime>10/11/2015 21:53:56</publishTime>
+      <publishTime>10/11/2015 21:53:55</publishTime>
     </File>
     <File Include="css/common/charts.css">
       <publishTime>05/14/2016 16:02:04</publishTime>
@@ -4712,10 +4715,13 @@
       <publishTime>05/14/2016 16:02:04</publishTime>
     </File>
     <File Include="UI_Monitor/DCSMonitor/MonitorShell/DCSMonitorShell.aspx">
-      <publishTime>04/23/2017 10:06:40</publishTime>
+      <publishTime>04/23/2017 10:06:42</publishTime>
     </File>
     <File Include="UI_Monitor/DCSMonitor/MonitorShell/test.aspx">
       <publishTime>05/14/2016 16:02:04</publishTime>
+    </File>
+    <File Include="UI_Monitor/DCSMonitor/zc_nxjc_qtx_tys/Airpollutantemissions.aspx">
+      <publishTime>05/10/2017 11:07:18</publishTime>
     </File>
     <File Include="UI_Monitor/images/common/arrowGreenDown.gif">
       <publishTime>05/14/2016 16:02:04</publishTime>
@@ -4814,10 +4820,10 @@
       <publishTime>05/14/2016 16:02:04</publishTime>
     </File>
     <File Include="UI_Monitor/images/common/signalCorrect.jpg">
-      <publishTime>02/10/2017 15:58:12</publishTime>
+      <publishTime>02/10/2017 15:58:14</publishTime>
     </File>
     <File Include="UI_Monitor/images/common/signalErr.jpg">
-      <publishTime>02/10/2017 16:51:12</publishTime>
+      <publishTime>02/10/2017 16:51:14</publishTime>
     </File>
     <File Include="UI_Monitor/images/common/yellowC.gif">
       <publishTime>05/14/2016 16:02:04</publishTime>
@@ -4832,7 +4838,7 @@
       <publishTime>05/14/2016 16:02:04</publishTime>
     </File>
     <File Include="UI_Monitor/images/page/DCS/Airpollutantemissions/zc_nxjc_air pollutant emissions.png">
-      <publishTime>04/24/2017 10:31:48</publishTime>
+      <publishTime>04/24/2017 10:31:50</publishTime>
     </File>
     <File Include="UI_Monitor/images/page/DCS/zc_nxjc_qtx_efc/zc_nxjc_qtx_efc_0304snbzgyxt.png">
       <publishTime>06/17/2016 16:31:30</publishTime>
@@ -4907,7 +4913,7 @@
       <publishTime>06/17/2016 16:31:30</publishTime>
     </File>
     <File Include="UI_Monitor/images/page/DCS/zc_nxjc_qtx_tys/zc_nxjc_air pollutant emissions.png">
-      <publishTime>04/24/2017 10:31:48</publishTime>
+      <publishTime>04/24/2017 10:31:50</publishTime>
     </File>
     <File Include="UI_Monitor/images/page/DCS/zc_nxjc_qtx_tys/zc_nxjc_qtx_tys_cementmill04_snbz.png">
       <publishTime>06/17/2016 16:31:30</publishTime>
@@ -4991,16 +4997,16 @@
       <publishTime>05/14/2016 16:02:04</publishTime>
     </File>
     <File Include="UI_Monitor/images/page/zc_nxjc_byc_byf.png">
-      <publishTime>10/10/2016 09:06:24</publishTime>
+      <publishTime>10/10/2016 09:06:26</publishTime>
     </File>
     <File Include="UI_Monitor/images/page/zc_nxjc_byc_byf_cementmill.jpg">
       <publishTime>05/14/2016 16:02:04</publishTime>
     </File>
     <File Include="UI_Monitor/images/page/zc_nxjc_byc_byf_cementmill01.png">
-      <publishTime>12/20/2016 15:03:17</publishTime>
+      <publishTime>12/20/2016 15:03:18</publishTime>
     </File>
     <File Include="UI_Monitor/images/page/zc_nxjc_byc_byf_cementmill02.png">
-      <publishTime>12/20/2016 15:03:51</publishTime>
+      <publishTime>12/20/2016 15:03:52</publishTime>
     </File>
     <File Include="UI_Monitor/images/page/zc_nxjc_byc_byf_clinker.jpg">
       <publishTime>05/14/2016 16:02:04</publishTime>
@@ -5015,7 +5021,7 @@
       <publishTime>07/29/2015 18:05:14</publishTime>
     </File>
     <File Include="UI_Monitor/images/page/zc_nxjc_lpsc_lpsf.png">
-      <publishTime>03/12/2017 09:34:51</publishTime>
+      <publishTime>03/12/2017 09:34:52</publishTime>
     </File>
     <File Include="UI_Monitor/images/page/zc_nxjc_qtx_efc.jpg">
       <publishTime>05/14/2016 16:02:04</publishTime>
@@ -5108,7 +5114,7 @@
       <publishTime>06/06/2016 16:09:04</publishTime>
     </File>
     <File Include="UI_Monitor/images/page/zc_nxjc_ychc_ndf.png">
-      <publishTime>01/06/2016 10:44:15</publishTime>
+      <publishTime>01/06/2016 10:44:16</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/Airpollutantemissions.js">
       <publishTime>05/03/2017 12:00:11</publishTime>
@@ -5126,43 +5132,46 @@
       <publishTime>05/14/2016 16:02:04</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/chartjs.js">
-      <publishTime>05/14/2016 16:02:04</publishTime>
+      <publishTime>06/22/2017 11:50:46</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/ComprehensiveStatistic.js">
       <publishTime>05/14/2016 16:02:04</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/DCSMonitorShell.js">
-      <publishTime>04/23/2017 18:08:45</publishTime>
+      <publishTime>04/23/2017 18:08:46</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/DCSTagInfo.js">
       <publishTime>05/14/2016 16:02:04</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/Default.js">
-      <publishTime>04/23/2017 18:49:58</publishTime>
+      <publishTime>04/23/2017 18:50:00</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/DisplayName.js">
-      <publishTime>03/03/2017 16:32:38</publishTime>
+      <publishTime>03/03/2017 16:32:40</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/EquipmentInfo.js">
-      <publishTime>03/03/2017 16:33:57</publishTime>
+      <publishTime>06/12/2017 09:49:08</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/monitorjs.js">
-      <publishTime>04/18/2017 14:14:16</publishTime>
+      <publishTime>07/28/2017 10:44:05</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/MonitorShell.js">
-      <publishTime>09/05/2016 01:20:24</publishTime>
+      <publishTime>09/05/2016 01:20:26</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/multiTagChart.js">
-      <publishTime>05/14/2016 16:02:04</publishTime>
+      <publishTime>07/07/2017 14:34:00</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/myDrag.js">
       <publishTime>05/14/2016 16:02:04</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/RunningState.js">
-      <publishTime>01/04/2017 11:24:41</publishTime>
+      <publishTime>08/01/2017 12:59:15</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/SubMonitorAdapter.js">
-      <publishTime>04/28/2017 11:11:28</publishTime>
+      <publishTime>04/28/2017 11:11:30</publishTime>
+    </File>
+    <File Include="UI_Monitor/js/common/SumProcessStatistic.js">
+      <publishTime>07/07/2017 14:34:00</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/trendlineAnalysis_monitorView.js">
       <publishTime>05/14/2016 16:02:04</publishTime>
@@ -5177,7 +5186,7 @@
       <publishTime>09/02/2016 01:16:02</publishTime>
     </File>
     <File Include="UI_Monitor/js/page/PVFClock.js">
-      <publishTime>09/05/2016 00:14:12</publishTime>
+      <publishTime>07/18/2017 11:06:28</publishTime>
     </File>
     <File Include="UI_Monitor/ProcessEnergyMonitor/MonitorShell/MainMachine.aspx">
       <publishTime>05/14/2016 16:02:04</publishTime>
@@ -5194,14 +5203,17 @@
     <File Include="UI_Monitor/ProcessEnergyMonitor/MonitorShell/WebForm1.aspx">
       <publishTime>05/14/2016 16:02:04</publishTime>
     </File>
+    <File Include="UI_Monitor/ProcessEnergyMonitor/zc_nxjc_byc_byf/zc_nxjc_byc_byf_cementmill01.aspx">
+      <publishTime>03/27/2017 09:18:11</publishTime>
+    </File>
     <File Include="UI_Monitor/TrendTool/MultiTrendlineRenderer.aspx">
       <publishTime>05/14/2016 16:02:04</publishTime>
     </File>
     <File Include="UI_Monitor/TrendTool/TrendlineRenderer.aspx">
-      <publishTime>05/14/2016 16:02:04</publishTime>
+      <publishTime>06/22/2017 11:26:02</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/04/2017 08:53:31</publishTime>
+      <publishTime>01/25/2018 21:00:26</publishTime>
     </File>
   </ItemGroup>
 </Project>

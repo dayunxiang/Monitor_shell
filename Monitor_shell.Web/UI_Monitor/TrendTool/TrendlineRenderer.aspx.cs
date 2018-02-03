@@ -6,6 +6,9 @@ using System.Web;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.SqlClient;
+using System.Text;
 
 namespace Monitor_shell.Web.UI_Monitor.TrendTool
 {
@@ -13,7 +16,18 @@ namespace Monitor_shell.Web.UI_Monitor.TrendTool
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ///以下是接收js脚本中post过来的参数
+            string m_FunctionName = Request.Form["myFunctionName"] == null ? "" : Request.Form["myFunctionName"].ToString();             //方法名称,调用后台不同的方法
+            string m_Parameter1 = Request.Form["myParameter1"] == null ? "" : Request.Form["myParameter1"].ToString();                   //方法的参数名称1
+            //方法的参数名称2
+            if (m_FunctionName == "ExcelStream")
+            {
+                //ExportFile("xls", "导出报表1.xls");
+                string m_ExportTable = m_Parameter1.Replace("&lt;", "<");
+                m_ExportTable = m_ExportTable.Replace("&gt;", ">");
+                //m_ExportTable = m_ExportTable.Replace("&nbsp", "  ");
+                TrendLineService.ExportExcelFile("xls", "历史数据报表.xls", m_ExportTable);
+            }
         }
         [WebMethod]
         public static IDictionary<string, decimal> GetData(string id, string startTime, string endTime, int timeSpan)
@@ -31,6 +45,7 @@ namespace Monitor_shell.Web.UI_Monitor.TrendTool
         {
             string id = myId;
             string[] myArray = id.Split('>');
+            string[] myEnvironmentArray = myArray[1].Split('_');
             /*
             //标准电量ID为：OrganizationID>VariableId>ElectricityQuantity
             //标准功率ID为：OrganizationID>VariableId>Power
@@ -62,7 +77,29 @@ namespace Monitor_shell.Web.UI_Monitor.TrendTool
             //处理模拟量标签
             if (myArray[2] == "DCS" || myArray[2] == "BarGraph")
             {
-                id = myArray[0] + ">" + myArray[1] + ">DCS";
+                if (myEnvironmentArray.Length >= 3)
+                {
+                    if (myEnvironmentArray[myEnvironmentArray.Length-1] == "TenMinutes" || myEnvironmentArray[myEnvironmentArray.Length-1] == "TwentyMinutes" || myEnvironmentArray[myEnvironmentArray.Length-1] == "OneHour")
+                    {
+                        StringBuilder tagBulider = new StringBuilder();
+                        tagBulider.Append(myArray[0]+">");
+                        for (int i = 0; i < myEnvironmentArray.Length-1; i++)
+                        {
+                            tagBulider.Append(myEnvironmentArray[i]+"_");
+                        }
+                        tagBulider.Remove(tagBulider.Length - 1, 1);
+                        tagBulider.Append(">DCS");
+                        id = tagBulider.ToString();
+                    }
+                    else
+                    {
+                        id = myArray[0] + ">" + myArray[1] + ">DCS";
+                    }
+                }
+                else
+                {
+                    id = myArray[0] + ">" + myArray[1] + ">DCS";
+                }
             }
             return id;
         }

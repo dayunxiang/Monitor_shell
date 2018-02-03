@@ -48,7 +48,7 @@
    <div id="TextGround"style="font-size:large;padding-left:40px;padding-bottom:200px;padding-right:500px;padding-top:0px;width:1480px;height: 760px;"></div>   
         <div id="Picture"style="position: absolute; top: 4px; left: 7px; height: 20px; width: 20px; background-size:100% auto"></div> 
     <%--标签粘贴处--%>
-<%--         <button onclick="CheckTags()">检查标签</button>--%>
+         <%--<button onclick="CheckTags()">检查标签</button>--%>
       <%--开关量--%>
         <div class="BoolSignal mchart" id="zc_nxjc_qtx_efc>Cement01_L_1AC_RD>BoolSignal" style="position: absolute; top: 286px; left: 117px; height: 26px; width: 26px;" data-option="RelatedTags='Cement01_L_1AC_RD,Cement01_L_1AC_RN,Cement01_L_1AC_ALM',Display='000:yellowCB,001:redCB,010:greenCB,011:redCB,100:yellowC,101:redCB,110:greenC,111:redCB'"></div>
         <div class="BoolSignal mchart" id="zc_nxjc_qtx_efc>Cement01_L_4AC1_RD>BoolSignal" style="position: absolute; top: 286px; left: 192px; height: 26px; width: 26px;" data-option="RelatedTags='Cement01_L_4AC1_RD,Cement01_L_4AC1_RN,Cement01_L_4AC1_ALM',Display='000:yellowCB,001:redCB,010:greenCB,011:redCB,100:yellowC,101:redCB,110:greenC,111:redCB'"></div>
