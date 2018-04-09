@@ -15,7 +15,7 @@ namespace Monitor_shell.Web.UI_Monitor.ProcessEnergyMonitor.MonitorShell
             base.InitComponts();
             string pageInfors = "";
 #if DEBUG
-            pageInfors = GetPageIdByNodeId("zc_nxjc_tsc_tsf_cementmill02,zc_nxjc_tsc_tsf");
+            pageInfors = GetPageIdByNodeId("zc_nxjc_ychc_lsf,zc_nxjc_ychc_lsf");
             pageIdStringContainerId.Value = pageInfors;
 
 #elif !DEBUG

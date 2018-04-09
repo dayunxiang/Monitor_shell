@@ -738,6 +738,11 @@
             // IE8下会出现时间坐标轴换行显示不全的问题，解决思路：
             // 当为IE8时，则减少绘制区域，并在绘制后，调高时间坐标轴的高度。
 
+            ///////增加电耗趋势时显示小数点两位//////////
+            if ((chartOptions != undefined || chartOptions != null) && variableId.indexOf("Consumption") != -1) {
+                chartOptions.axes.yaxis.tickOptions["formatString"] = "%#.2f";
+            }
+
             var height = parseInt($('#chart').css('height').replace('px', ''));
             if ($.browser.version == '8.0') {
                 $('#chart').css('height', (height - 16) + 'px');

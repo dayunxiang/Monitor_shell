@@ -138,3 +138,17 @@ F:\NXJC\DCS发监控画发布\Monitor_shell\Monitor_shell\Monitor_shell\Monitor_
 F:\NXJC\DCS发监控画发布\Monitor_shell\Monitor_shell\Monitor_shell\Monitor_shell.Web\obj\Release\Monitor_shell.Web.csprojResolveAssemblyReference.cache
 F:\NXJC\DCS发监控画发布\Monitor_shell\Monitor_shell\Monitor_shell\Monitor_shell.Web\obj\Release\Monitor_shell.Web.dll
 F:\NXJC\DCS发监控画发布\Monitor_shell\Monitor_shell\Monitor_shell\Monitor_shell.Web\obj\Release\Monitor_shell.Web.pdb
+C:\Users\Administrator\Desktop\Monitor_shell\Monitor_shell.Web\bin\Monitor_shell.Web.dll
+C:\Users\Administrator\Desktop\Monitor_shell\Monitor_shell.Web\bin\Monitor_shell.Web.pdb
+C:\Users\Administrator\Desktop\Monitor_shell\Monitor_shell.Web\bin\Monitor_shell.Infrastructure.dll
+C:\Users\Administrator\Desktop\Monitor_shell\Monitor_shell.Web\bin\Monitor_shell.Service.dll
+C:\Users\Administrator\Desktop\Monitor_shell\Monitor_shell.Web\bin\AutoSetParameters.dll
+C:\Users\Administrator\Desktop\Monitor_shell\Monitor_shell.Web\bin\StatisticalReport.Infrastructure.dll
+C:\Users\Administrator\Desktop\Monitor_shell\Monitor_shell.Web\bin\UpDownLoadFiles.dll
+C:\Users\Administrator\Desktop\Monitor_shell\Monitor_shell.Web\bin\AutoMapper.dll
+C:\Users\Administrator\Desktop\Monitor_shell\Monitor_shell.Web\bin\mDbDataAdaper.dll
+C:\Users\Administrator\Desktop\Monitor_shell\Monitor_shell.Web\bin\Monitor_shell.Infrastructure.pdb
+C:\Users\Administrator\Desktop\Monitor_shell\Monitor_shell.Web\bin\Monitor_shell.Service.pdb
+C:\Users\Administrator\Desktop\Monitor_shell\Monitor_shell.Web\obj\Release\Monitor_shell.Web.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\Monitor_shell\Monitor_shell.Web\obj\Release\Monitor_shell.Web.dll
+C:\Users\Administrator\Desktop\Monitor_shell\Monitor_shell.Web\obj\Release\Monitor_shell.Web.pdb

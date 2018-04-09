@@ -35,11 +35,14 @@ function InitializeData() {
 
     if (OrganizationType == "熟料") {
         $("#ProcessMontor").attr("src", '../' + pageUrl + '/' + OrganizationId + '_sheng.aspx?PageId=' + PageIdString);
-        //$("#ProcessMontor").reload();
     }
     else {
-        $("#ProcessMontor").attr("src", '../' + pageUrl + '/' + OrganizationId + '.aspx?PageId=' + PageIdString);
-        //$("#ProcessMontor").reload();
+        if (pageUrl == "zc_nxjc_ychc_lsf") {
+            $("#ProcessMontor").attr("src", '../' + pageUrl + '/' + OrganizationId + '_01.aspx?PageId=' + PageIdString);
+        }
+        else {
+            $("#ProcessMontor").attr("src", '../' + pageUrl + '/' + OrganizationId + '.aspx?PageId=' + PageIdString);
+        }
     }
 }
 //初始化Iframe，Ifame自适应大小
@@ -287,16 +290,41 @@ function SetDisplayPageButton() {
 
         }
         else {
-            var m_DisplayButton = $('<a href="' + '../' + pageUrl + '/' + OrganizationId + '.aspx?PageId=' + PageIdString + '" target="ProcessMontor" class="easyui-linkbutton">' + OrganizationName + '</a>');
-            $('#DisplayPageButtons').append('<td id = "DisplayButtonTd" style = "width:125px;"></td>');
-            $('#DisplayButtonTd').append(m_DisplayButton);
-            m_DisplayButton.linkbutton({
-                iconCls: 'icon-search',
-                plain: false,
-                width: 120,
-                height: 22
-            });
-
+            ///////////////////兰山能源监控总图拆分为两个图，闫潇华修改//////////////////////////////////
+            if (pageUrl == "zc_nxjc_ychc_lsf") {
+                var m_DisplayButton01 = $('<a href="' + '../' + pageUrl + '/' + OrganizationId + '_01.aspx?PageId=' + PageIdString + '" target="ProcessMontor"></a>');
+                var m_DisplayButton02 = $('<a href="' + '../' + pageUrl + '/' + OrganizationId + '_02.aspx?PageId=' + PageIdString + '" target="ProcessMontor"></a>');
+                $('#DisplayPageButtons').append('<td id = "DisplayButton01Td" style = "width:125px; margin:0px;padding:0px; overflow:hidden;"></td>');
+                $('#DisplayPageButtons').append('<td id = "DisplayButton02Td" style = "width:125px; margin:0px;padding:0px; overflow:hidden;"></td>');
+                $('#DisplayButton01Td').append(m_DisplayButton01);
+                $('#DisplayButton02Td').append(m_DisplayButton02);
+                m_DisplayButton01.linkbutton({
+                    iconCls: 'icon-search',
+                    plain: false,
+                    text: '兰山2#3#线',
+                    width: 120,
+                    height: 22
+                });
+                m_DisplayButton02.linkbutton({
+                    iconCls: 'icon-search',
+                    plain: false,
+                    text: '兰山4#线',
+                    width: 120,
+                    height: 22
+                });
+            }
+           ///////////////////兰山能源监控总图拆分为两个图，闫潇华修改结束//////////////////////////////////
+            else {
+                var m_DisplayButton = $('<a href="' + '../' + pageUrl + '/' + OrganizationId + '.aspx?PageId=' + PageIdString + '" target="ProcessMontor" class="easyui-linkbutton">' + OrganizationName + '</a>');
+                $('#DisplayPageButtons').append('<td id = "DisplayButtonTd" style = "width:125px;"></td>');
+                $('#DisplayButtonTd').append(m_DisplayButton);
+                m_DisplayButton.linkbutton({
+                    iconCls: 'icon-search',
+                    plain: false,
+                    width: 120,
+                    height: 22
+                });
+            }    
         }
     }
     else {
@@ -323,15 +351,41 @@ function SetDisplayPageButton() {
             });
         }
         else {
-            var m_DisplayButton = $('<a href="' + '../' + pageUrl + '/' + OrganizationId + '.aspx?PageId=' + PageIdString + '" target="ProcessMontor" class="easyui-linkbutton">' + OrganizationName + '</a>');
-            $('#DisplayPageButtons').append('<td id = "DisplayButtonTd" style = "width:125px;margin:0px;padding:0px; overflow:hidden;"></td>');
-            $('#DisplayButtonTd').append(m_DisplayButton);
-            m_DisplayButton.linkbutton({
-                iconCls: 'icon-search',
-                plain: false,
-                width: 120,
-                height: 22
-            });
+            ///////////////////兰山能源监控总图拆分为两个图，闫潇华修改//////////////////////////////////
+            if (pageUrl == "zc_nxjc_ychc_lsf") {
+                var m_DisplayButton01 = $('<a href="' + '../' + pageUrl + '/' + OrganizationId + '_01.aspx?PageId=' + PageIdString + '" target="ProcessMontor"></a>');
+                var m_DisplayButton02 = $('<a href="' + '../' + pageUrl + '/' + OrganizationId + '_02.aspx?PageId=' + PageIdString + '" target="ProcessMontor"></a>');
+                $('#DisplayPageButtons').append('<td id = "DisplayButton01Td" style = "width:125px; margin:0px;padding:0px; overflow:hidden;"></td>');
+                $('#DisplayPageButtons').append('<td id = "DisplayButton02Td" style = "width:125px; margin:0px;padding:0px; overflow:hidden;"></td>');
+                $('#DisplayButton01Td').append(m_DisplayButton01);
+                $('#DisplayButton02Td').append(m_DisplayButton02);
+                m_DisplayButton01.linkbutton({
+                    iconCls: 'icon-search',
+                    plain: false,
+                    text: '兰山2#3#线',
+                    width: 120,
+                    height: 22
+                });
+                m_DisplayButton02.linkbutton({
+                    iconCls: 'icon-search',
+                    plain: false,
+                    text: '兰山4#线',
+                    width: 120,
+                    height: 22
+                });
+            }
+           ///////////////////兰山能源监控总图拆分为两个图，闫潇华修改结束//////////////////////////////////
+            else {
+                var m_DisplayButton = $('<a href="' + '../' + pageUrl + '/' + OrganizationId + '.aspx?PageId=' + PageIdString + '" target="ProcessMontor" class="easyui-linkbutton">' + OrganizationName + '</a>');
+                $('#DisplayPageButtons').append('<td id = "DisplayButtonTd" style = "width:125px;margin:0px;padding:0px; overflow:hidden;"></td>');
+                $('#DisplayButtonTd').append(m_DisplayButton);
+                m_DisplayButton.linkbutton({
+                    iconCls: 'icon-search',
+                    plain: false,
+                    width: 120,
+                    height: 22
+                });
+            }          
         }
     }
 }

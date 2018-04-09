@@ -1795,8 +1795,6 @@
     <Content Include="UI_Monitor\ProcessEnergyMonitor\MonitorShell\MultiMonitorShell.aspx" />
     <Content Include="UI_Monitor\ProcessEnergyMonitor\MonitorShell\test.aspx" />
     <Content Include="UI_Monitor\ProcessEnergyMonitor\MonitorShell\WebForm1.aspx" />
-    <Content Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_szsc_szsf\zc_nxjc_szsc_szsf_cementmill01.aspx" />
-    <Content Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_szsc_szsf\zc_nxjc_szsc_szsf_cementmill02.aspx" />
     <Content Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_ychc_yfcf\zc_nxjc_ychc_yfcf.aspx" />
     <Content Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_ychc_yfcf\zc_nxjc_ychc_yfcf_cementmill01.aspx" />
     <Content Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_ychc_yfcf\zc_nxjc_ychc_yfcf_cementmill02.aspx" />
@@ -1861,20 +1859,6 @@
     </Compile>
     <Compile Include="UI_Monitor\ProcessEnergyMonitor\MonitorShell\WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_szsc_szsf\zc_nxjc_szsc_szsf_cementmill01.aspx.cs">
-      <DependentUpon>zc_nxjc_szsc_szsf_cementmill01.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_szsc_szsf\zc_nxjc_szsc_szsf_cementmill01.aspx.designer.cs">
-      <DependentUpon>zc_nxjc_szsc_szsf_cementmill01.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_szsc_szsf\zc_nxjc_szsc_szsf_cementmill02.aspx.cs">
-      <DependentUpon>zc_nxjc_szsc_szsf_cementmill02.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_szsc_szsf\zc_nxjc_szsc_szsf_cementmill02.aspx.designer.cs">
-      <DependentUpon>zc_nxjc_szsc_szsf_cementmill02.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_ychc_yfcf\zc_nxjc_ychc_yfcf.aspx.cs">
       <DependentUpon>zc_nxjc_ychc_yfcf.aspx</DependentUpon>
