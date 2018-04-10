@@ -37,7 +37,7 @@ function InitializeData() {
         $("#ProcessMontor").attr("src", '../' + pageUrl + '/' + OrganizationId + '_sheng.aspx?PageId=' + PageIdString);
     }
     else {
-        if (pageUrl == "zc_nxjc_ychc_lsf") {
+        if (OrganizationId == "zc_nxjc_ychc_lsf") {
             $("#ProcessMontor").attr("src", '../' + pageUrl + '/' + OrganizationId + '_01.aspx?PageId=' + PageIdString);
         }
         else {
@@ -291,7 +291,7 @@ function SetDisplayPageButton() {
         }
         else {
             ///////////////////兰山能源监控总图拆分为两个图，闫潇华修改//////////////////////////////////
-            if (pageUrl == "zc_nxjc_ychc_lsf") {
+            if (OrganizationId == "zc_nxjc_ychc_lsf") {
                 var m_DisplayButton01 = $('<a href="' + '../' + pageUrl + '/' + OrganizationId + '_01.aspx?PageId=' + PageIdString + '" target="ProcessMontor"></a>');
                 var m_DisplayButton02 = $('<a href="' + '../' + pageUrl + '/' + OrganizationId + '_02.aspx?PageId=' + PageIdString + '" target="ProcessMontor"></a>');
                 $('#DisplayPageButtons').append('<td id = "DisplayButton01Td" style = "width:125px; margin:0px;padding:0px; overflow:hidden;"></td>');
@@ -352,7 +352,7 @@ function SetDisplayPageButton() {
         }
         else {
             ///////////////////兰山能源监控总图拆分为两个图，闫潇华修改//////////////////////////////////
-            if (pageUrl == "zc_nxjc_ychc_lsf") {
+            if (OrganizationId == "zc_nxjc_ychc_lsf") {
                 var m_DisplayButton01 = $('<a href="' + '../' + pageUrl + '/' + OrganizationId + '_01.aspx?PageId=' + PageIdString + '" target="ProcessMontor"></a>');
                 var m_DisplayButton02 = $('<a href="' + '../' + pageUrl + '/' + OrganizationId + '_02.aspx?PageId=' + PageIdString + '" target="ProcessMontor"></a>');
                 $('#DisplayPageButtons').append('<td id = "DisplayButton01Td" style = "width:125px; margin:0px;padding:0px; overflow:hidden;"></td>');
