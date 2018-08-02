@@ -248,7 +248,7 @@
                 <td><span id="zc_nxjc_ychc_lsf_clinker02>clinkerElectricityGeneration_ElectricityConsumption>Class" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_ychc_lsf_cogeneration01>electricityOutput_ElectricityQuantity>Class" class="mchart"></span></td>
+                <td><span id="zc_nxjc_ychc_lsf_cogeneration02>clinkerElectricityGeneration_ElectricityConsumption>Class" class="mchart"></span></td>
             </tr>
             <tr>
                 <td><span id="zc_nxjc_ychc_lsf_clinker02>electricityOwnDemand_ElectricityQuantity>Class" class="mchart"></span></td>
@@ -262,7 +262,7 @@
                 <td><span id="zc_nxjc_ychc_lsf_clinker02>clinkerElectricityGeneration_ElectricityConsumption>Day" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_ychc_lsf_cogeneration01>electricityOutput_ElectricityQuantity>Day" class="mchart"></span></td>
+                <td><span id="zc_nxjc_ychc_lsf_cogeneration02>clinkerElectricityGeneration_ElectricityConsumption>Day" class="mchart"></span></td>
             </tr>
             <tr>
                 <td><span id="zc_nxjc_ychc_lsf_clinker02>electricityOwnDemand_ElectricityQuantity>Day" class="mchart"></span></td>
@@ -477,7 +477,7 @@
                 <td><span id="zc_nxjc_ychc_lsf_clinker03>clinkerElectricityGeneration_ElectricityConsumption>Class" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_ychc_lsf_cogeneration01>electricityOutput_ElectricityQuantity>Class" class="mchart"></span></td>
+                <td><span id="zc_nxjc_ychc_lsf_cogeneration02>electricityOutput_ElectricityQuantity>Class" class="mchart"></span></td>
             </tr>
             <tr>
                 <td><span id="zc_nxjc_ychc_lsf_clinker03>electricityOwnDemand_ElectricityQuantity>Class" class="mchart"></span></td>
@@ -491,7 +491,7 @@
                 <td><span id="zc_nxjc_ychc_lsf_clinker03>clinkerElectricityGeneration_ElectricityConsumption>Day" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_ychc_lsf_cogeneration01>electricityOutput_ElectricityQuantity>Day" class="mchart"></span></td>
+                <td><span id="zc_nxjc_ychc_lsf_cogeneration02>electricityOutput_ElectricityQuantity>Day" class="mchart"></span></td>
             </tr>
             <tr>
                 <td><span id="zc_nxjc_ychc_lsf_clinker03>electricityOwnDemand_ElectricityQuantity>Day" class="mchart"></span></td>
@@ -707,7 +707,7 @@
                 <td><span id="zc_nxjc_ychc_lsf_clinker04>clinkerElectricityGeneration_ElectricityConsumption>Class" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_ychc_lsf_cogeneration01>electricityOutput_ElectricityQuantity>Class" class="mchart"></span></td>
+                <td><span id="zc_nxjc_ychc_lsf_cogeneration03>clinkerElectricityGeneration_ElectricityConsumption>Class" class="mchart"></span></td>
             </tr>
             <tr>
                 <td><span id="zc_nxjc_ychc_lsf_clinker04>electricityOwnDemand_ElectricityQuantity>Class" class="mchart"></span></td>
@@ -721,7 +721,7 @@
                 <td><span id="zc_nxjc_ychc_lsf_clinker04>clinkerElectricityGeneration_ElectricityConsumption>Day" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_ychc_lsf_cogeneration01>electricityOutput_ElectricityQuantity>Day" class="mchart"></span></td>
+                <td><span id="zc_nxjc_ychc_lsf_cogeneration03>clinkerElectricityGeneration_ElectricityConsumption>Day" class="mchart"></span></td>
             </tr>
             <tr>
                 <td><span id="zc_nxjc_ychc_lsf_clinker04>electricityOwnDemand_ElectricityQuantity>Day" class="mchart"></span></td>

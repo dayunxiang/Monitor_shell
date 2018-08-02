@@ -57,3 +57,10 @@ C:\Users\Administrator\Desktop\Monitor_shell\Monitor_shell.Infrastructure\bin\Re
 C:\Users\Administrator\Desktop\Monitor_shell\Monitor_shell.Infrastructure\obj\Release\Monitor_shell.Infrastructure.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\Monitor_shell\Monitor_shell.Infrastructure\obj\Release\Monitor_shell.Infrastructure.dll
 C:\Users\Administrator\Desktop\Monitor_shell\Monitor_shell.Infrastructure\obj\Release\Monitor_shell.Infrastructure.pdb
+C:\工作\编程\宁夏建材\三层框架V3.1\Monitor_shell\Monitor_shell.Infrastructure\bin\Release\Monitor_shell.Infrastructure.dll
+C:\工作\编程\宁夏建材\三层框架V3.1\Monitor_shell\Monitor_shell.Infrastructure\bin\Release\Monitor_shell.Infrastructure.pdb
+C:\工作\编程\宁夏建材\三层框架V3.1\Monitor_shell\Monitor_shell.Infrastructure\bin\Release\SqlServerDataAdapter.dll
+C:\工作\编程\宁夏建材\三层框架V3.1\Monitor_shell\Monitor_shell.Infrastructure\bin\Release\AutoMapper.dll
+C:\工作\编程\宁夏建材\三层框架V3.1\Monitor_shell\Monitor_shell.Infrastructure\obj\Release\Monitor_shell.Infrastructure.csprojResolveAssemblyReference.cache
+C:\工作\编程\宁夏建材\三层框架V3.1\Monitor_shell\Monitor_shell.Infrastructure\obj\Release\Monitor_shell.Infrastructure.dll
+C:\工作\编程\宁夏建材\三层框架V3.1\Monitor_shell\Monitor_shell.Infrastructure\obj\Release\Monitor_shell.Infrastructure.pdb

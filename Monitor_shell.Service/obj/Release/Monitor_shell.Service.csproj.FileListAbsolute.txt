@@ -98,3 +98,16 @@ C:\Users\Administrator\Desktop\Monitor_shell\Monitor_shell.Service\bin\Release\M
 C:\Users\Administrator\Desktop\Monitor_shell\Monitor_shell.Service\obj\Release\Monitor_shell.Service.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\Monitor_shell\Monitor_shell.Service\obj\Release\Monitor_shell.Service.dll
 C:\Users\Administrator\Desktop\Monitor_shell\Monitor_shell.Service\obj\Release\Monitor_shell.Service.pdb
+C:\工作\编程\宁夏建材\三层框架V3.1\Monitor_shell\Monitor_shell.Service\bin\Release\Monitor_shell.Service.dll.config
+C:\工作\编程\宁夏建材\三层框架V3.1\Monitor_shell\Monitor_shell.Service\bin\Release\Monitor_shell.Service.dll
+C:\工作\编程\宁夏建材\三层框架V3.1\Monitor_shell\Monitor_shell.Service\bin\Release\Monitor_shell.Service.pdb
+C:\工作\编程\宁夏建材\三层框架V3.1\Monitor_shell\Monitor_shell.Service\bin\Release\EnergyConsumption.dll
+C:\工作\编程\宁夏建材\三层框架V3.1\Monitor_shell\Monitor_shell.Service\bin\Release\Monitor_shell.Infrastructure.dll
+C:\工作\编程\宁夏建材\三层框架V3.1\Monitor_shell\Monitor_shell.Service\bin\Release\SqlServerDataAdapter.dll
+C:\工作\编程\宁夏建材\三层框架V3.1\Monitor_shell\Monitor_shell.Service\bin\Release\StatisticalReport.Infrastructure.dll
+C:\工作\编程\宁夏建材\三层框架V3.1\Monitor_shell\Monitor_shell.Service\bin\Release\UpDownLoadFiles.dll
+C:\工作\编程\宁夏建材\三层框架V3.1\Monitor_shell\Monitor_shell.Service\bin\Release\AutoMapper.dll
+C:\工作\编程\宁夏建材\三层框架V3.1\Monitor_shell\Monitor_shell.Service\bin\Release\Monitor_shell.Infrastructure.pdb
+C:\工作\编程\宁夏建材\三层框架V3.1\Monitor_shell\Monitor_shell.Service\obj\Release\Monitor_shell.Service.csprojResolveAssemblyReference.cache
+C:\工作\编程\宁夏建材\三层框架V3.1\Monitor_shell\Monitor_shell.Service\obj\Release\Monitor_shell.Service.dll
+C:\工作\编程\宁夏建材\三层框架V3.1\Monitor_shell\Monitor_shell.Service\obj\Release\Monitor_shell.Service.pdb
