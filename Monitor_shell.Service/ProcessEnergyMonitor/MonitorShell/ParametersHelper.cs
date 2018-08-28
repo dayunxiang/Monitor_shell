@@ -77,7 +77,7 @@ namespace Monitor_shell.Service.ProcessEnergyMonitor.MonitorShell
 	                                        (D.CumulantDay) as CumulantDay
                                     FROM (select a.[OrganizationID],b.[ClinkerOrganizationID] 
 	                                    from  
-		                                    (select [OrganizationID],[ClinkerOrganizationID]=convert(xml,' <root> <v>'+replace([ClinkerOrganizationID],',',' </v> <v>')+' </v> </root>') from [NXJC].[dbo].[analyse_KPI_OrganizationContrast])a 
+		                                    (select [OrganizationID],[ClinkerOrganizationID]=convert(xml,' <root> <v>'+replace([ClinkerOrganizationID],',',' </v> <v>')+' </v> </root>') from [analyse_KPI_OrganizationContrast])a 
 	                                    outer apply 
 			                                (select [ClinkerOrganizationID]=C.v.value('.','nvarchar(100)') from a.[ClinkerOrganizationID].nodes('/root/v')C(v))b 
 		                                where a.[OrganizationID] = @organizationId) as C, RealtimeIncrementCumulant AS D
@@ -90,7 +90,7 @@ namespace Monitor_shell.Service.ProcessEnergyMonitor.MonitorShell
 		                                from tz_Balance as C, balance_Energy as D, 
 		                                (select a.[OrganizationID],b.[ClinkerOrganizationID] 
 			                                from  
-				                                (select [OrganizationID],[ClinkerOrganizationID]=convert(xml,' <root> <v>'+replace([ClinkerOrganizationID],',',' </v> <v>')+' </v> </root>') from [NXJC].[dbo].[analyse_KPI_OrganizationContrast])a 
+				                                (select [OrganizationID],[ClinkerOrganizationID]=convert(xml,' <root> <v>'+replace([ClinkerOrganizationID],',',' </v> <v>')+' </v> </root>') from [dbo].[analyse_KPI_OrganizationContrast])a 
 			                                outer apply 
 				                                (select [ClinkerOrganizationID]=C.v.value('.','nvarchar(100)') from a.[ClinkerOrganizationID].nodes('/root/v')C(v))b 
 			                                where a.[OrganizationID] = @organizationId

@@ -736,7 +736,7 @@ namespace Monitor_shell.Service.ProcessEnergyMonitor.EnergyContrast
         {
             string m_Sql = @"SELECT A.OrganizationID
                           ,A.FactoryOrganizationID
-                      FROM NXJC.dbo.analyse_KPI_OrganizationContrast A
+                      FROM analyse_KPI_OrganizationContrast A
                       where OrganizationID = '{0}'";
             m_Sql = string.Format(m_Sql, myOrganizationId);
             try

@@ -87,7 +87,7 @@ namespace Monitor_shell.Service.PendantTools
 			                            else 'Flat' end ) as [id]
                                   ,rtrim(B.StartTime) as [start]
 	                              ,rtrim(B.EndTime) as [end]
-                              FROM NXJC.dbo.system_PVF A, NXJC.dbo.system_PVF_Detail B, analyse_KPI_OrganizationContrast C
+                              FROM system_PVF A, system_PVF_Detail B, analyse_KPI_OrganizationContrast C
                               where A.Flag = 1
                               and A.OrganizationID = C.FactoryOrganizationID
                               and A.KeyID = B.KeyID
