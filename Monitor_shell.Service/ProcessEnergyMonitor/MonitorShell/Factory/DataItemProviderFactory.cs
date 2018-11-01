@@ -71,6 +71,10 @@ namespace Monitor_shell.Service.ProcessEnergyMonitor.MonitorShell
             {
                 result = new RealtimeCurrentProvider("Current");
             }
+            else if (type == DataItemProviderType.WaterFlowRate)
+            {
+                result = new RealtimeWaterFlowRateProvider(connString);
+            }
             else if (type == DataItemProviderType.Environment)
             {
                 result = new RealtimeEnvironment("Environment");

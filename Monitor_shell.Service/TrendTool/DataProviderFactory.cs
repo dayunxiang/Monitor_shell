@@ -22,6 +22,7 @@ namespace Monitor_shell.Service.TrendTool
             dataProviders.Add(new MaterialDataProvider(connectionString));
             dataProviders.Add(new DCSAnlogSignalTagsDataProvider(connectionString));
             dataProviders.Add(new DCSBoolSignalTagsDataProvider(connectionString));
+            dataProviders.Add(new HistoryWaterFlowRateDataProvider(connectionString));
         }
 
         /// <summary>

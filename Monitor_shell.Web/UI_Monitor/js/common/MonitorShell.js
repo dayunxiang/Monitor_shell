@@ -50,42 +50,42 @@ function InitializeIframe() {
     if (BrowserName == "IE") {
         if (document.compatMode == "CSS1Compat") {//模式匹配 解决ie8下兼容模式
         }
-        $('#ProcessMontor').css('width', $('#MonitorLayout').layout('panel', 'center').panel('options').width - 8);
-        $('#ProcessMontor').css('height', $('#MonitorLayout').layout('panel', 'center').panel('options').height - 9);
+        $('#ProcessMontor').css('width', $('#MonitorLayout').layout('panel', 'center').panel('options').width - 1);
+        $('#ProcessMontor').css('height', $('#MonitorLayout').layout('panel', 'center').panel('options').height -1);
 
         $('#MonitorLayout').layout('panel', 'center').panel({
             onResize: function (width, height) {
-                $('#ProcessMontor').css('width', width - 8);
-                $('#ProcessMontor').css('height', height - 9);
+                $('#ProcessMontor').css('width', width - 1);
+                $('#ProcessMontor').css('height', height - 1);
                 if (AutoResizeFlag == true) {               //子页面自动调整大小
-                    SetAutoMonitorZoom(width - 8, height - 9);
+                    SetAutoMonitorZoom(width - 1, height - 1);
                 }
             }
         });
 
     } else if (BrowserName == "FF") {
-        $('#ProcessMontor').css('width', $('#MonitorLayout').layout('panel', 'center').panel('options').width - 6);
-        $('#ProcessMontor').css('height', $('#MonitorLayout').layout('panel', 'center').panel('options').height - 10);
+        $('#ProcessMontor').css('width', $('#MonitorLayout').layout('panel', 'center').panel('options').width - 1);
+        $('#ProcessMontor').css('height', $('#MonitorLayout').layout('panel', 'center').panel('options').height - 1);
 
         $('#MonitorLayout').layout('panel', 'center').panel({
             onResize: function (width, height) {
-                $('#ProcessMontor').css('width', width - 6);
-                $('#ProcessMontor').css('height', height - 10);
+                $('#ProcessMontor').css('width', width - 1);
+                $('#ProcessMontor').css('height', height - 1);
                 if (AutoResizeFlag == true) {               //子页面自动调整大小
-                    SetAutoMonitorZoom(width - 6, height - 10);
+                    SetAutoMonitorZoom(width - 1, height - 1);
                 }
             }
         });
     } else {
-        $('#ProcessMontor').css('width', $('#MonitorLayout').layout('panel', 'center').panel('options').width - 19);
-        $('#ProcessMontor').css('height', $('#MonitorLayout').layout('panel', 'center').panel('options').height - 9);
+        $('#ProcessMontor').css('width', $('#MonitorLayout').layout('panel', 'center').panel('options').width - 1);
+        $('#ProcessMontor').css('height', $('#MonitorLayout').layout('panel', 'center').panel('options').height - 1);
 
         $('#MonitorLayout').layout('panel', 'center').panel({
             onResize: function (width, height) {
-                $('#ProcessMontor').css('width', width - 19);
-                $('#ProcessMontor').css('height', height - 9);
+                $('#ProcessMontor').css('width', width - 1);
+                $('#ProcessMontor').css('height', height - 1);
                 if (AutoResizeFlag == true) {               //子页面自动调整大小
-                    SetAutoMonitorZoom(width - 19, height - 9);
+                    SetAutoMonitorZoom(width - 1, height - 1);
                 }
             }
         });

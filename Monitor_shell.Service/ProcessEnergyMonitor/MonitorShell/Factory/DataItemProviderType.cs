@@ -69,6 +69,10 @@ namespace Monitor_shell.Service.ProcessEnergyMonitor.MonitorShell
         /// </summary>
         RealtimePower,
         /// <summary>
+        /// 水瞬时流量
+        /// </summary>
+        WaterFlowRate,
+        /// <summary>
         /// 实时电量
         /// </summary>
         RealtimeElectricityQuantity,

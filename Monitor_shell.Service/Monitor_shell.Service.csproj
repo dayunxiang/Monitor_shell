@@ -108,6 +108,7 @@
     <Compile Include="ProcessEnergyMonitor\MonitorShell\RealtimeEnvironment.cs" />
     <Compile Include="ProcessEnergyMonitor\MonitorShell\RealtimePowerProvider.cs" />
     <Compile Include="ProcessEnergyMonitor\MonitorShell\RealtimePulverizedCoalInputProvider.cs" />
+    <Compile Include="ProcessEnergyMonitor\MonitorShell\RealtimeWaterFlowRateProvider.cs" />
     <Compile Include="ProcessEnergyMonitor\MonitorShell\SumCDMElectricityConsumptionProvider.cs" />
     <Compile Include="ProcessEnergyMonitor\MonitorShell\SumCDMElectricityQuantityProvider.cs" />
     <Compile Include="ProcessEnergyMonitor\MonitorShell\SumProcessCDMElectricityConsumptionProvider.cs" />
@@ -133,6 +134,7 @@
     <Compile Include="TrendTool\DCSDataProvider.cs" />
     <Compile Include="TrendTool\DCSAnlogSignalTagsDataProvider.cs" />
     <Compile Include="TrendTool\HistoryFormulaValueDataProvider.cs" />
+    <Compile Include="TrendTool\HistoryWaterFlowRateDataProvider.cs" />
     <Compile Include="TrendTool\IDataProvider.cs" />
     <Compile Include="TrendTool\MultiTrendlineRendererService.cs" />
     <Compile Include="TrendTool\MaterialDataProvider.cs" />
@@ -174,14 +176,14 @@
     <None Include="Service References\ServiceReference_RealTimeTagValue\Monitor_shell.Service.ServiceReference_RealTimeTagValue.StringDataGroup_Serialization.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference_RealTimeTagValue\RealTimeData1.wsdl" />
+    <None Include="Service References\ServiceReference_RealTimeTagValue\RealTimeData.wsdl" />
     <None Include="Service References\ServiceReference_RealTimeTagValue\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference_RealTimeTagValue\RealTimeData1.disco" />
+    <None Include="Service References\ServiceReference_RealTimeTagValue\RealTimeData.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

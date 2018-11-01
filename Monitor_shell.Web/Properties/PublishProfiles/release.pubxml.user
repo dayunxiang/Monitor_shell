@@ -29,13 +29,13 @@
       <publishTime>04/04/2016 12:02:42</publishTime>
     </File>
     <File Include="bin/Monitor_shell.Infrastructure.dll">
-      <publishTime>08/02/2018 09:27:15</publishTime>
+      <publishTime>09/13/2018 16:42:13</publishTime>
     </File>
     <File Include="bin/Monitor_shell.Service.dll">
-      <publishTime>08/02/2018 14:08:53</publishTime>
+      <publishTime>09/17/2018 11:19:33</publishTime>
     </File>
     <File Include="bin/Monitor_shell.Web.dll">
-      <publishTime>08/02/2018 14:15:38</publishTime>
+      <publishTime>09/17/2018 11:19:34</publishTime>
     </File>
     <File Include="bin/SqlServerDataAdapter.dll">
       <publishTime>07/29/2015 10:56:06</publishTime>
@@ -4706,10 +4706,10 @@
       <publishTime>02/03/2018 16:27:13</publishTime>
     </File>
     <File Include="UI_Monitor/DCSMonitor/js/common/OptionHelper.js">
-      <publishTime>02/03/2018 16:27:12</publishTime>
+      <publishTime>04/20/2016 08:31:46</publishTime>
     </File>
     <File Include="UI_Monitor/DCSMonitor/js/common/Playback.js">
-      <publishTime>02/03/2018 16:27:12</publishTime>
+      <publishTime>04/20/2016 08:31:46</publishTime>
     </File>
     <File Include="UI_Monitor/DCSMonitor/MonitorShell/DCSMonitorShell.asmx">
       <publishTime>02/03/2018 16:27:12</publishTime>
@@ -5120,73 +5120,73 @@
       <publishTime>05/03/2017 12:00:11</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/alarm.js">
-      <publishTime>02/03/2018 16:27:13</publishTime>
+      <publishTime>05/14/2016 16:02:04</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/alarm_old.js">
-      <publishTime>02/03/2018 16:27:13</publishTime>
+      <publishTime>05/14/2016 16:02:04</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/AmmeterStatistic.js">
-      <publishTime>02/03/2018 16:27:13</publishTime>
+      <publishTime>05/14/2016 16:02:04</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/blink.js">
-      <publishTime>02/03/2018 16:27:13</publishTime>
+      <publishTime>05/14/2016 16:02:04</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/chartjs.js">
-      <publishTime>02/03/2018 16:27:13</publishTime>
+      <publishTime>06/22/2017 11:50:46</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/ComprehensiveStatistic.js">
-      <publishTime>02/03/2018 16:27:13</publishTime>
+      <publishTime>05/14/2016 16:02:04</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/DCSMonitorShell.js">
-      <publishTime>02/03/2018 16:27:13</publishTime>
+      <publishTime>06/24/2018 13:19:04</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/DCSTagInfo.js">
-      <publishTime>02/03/2018 16:27:13</publishTime>
+      <publishTime>05/14/2016 16:02:04</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/Default.js">
-      <publishTime>02/03/2018 16:27:13</publishTime>
+      <publishTime>04/23/2017 18:50:00</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/DisplayName.js">
-      <publishTime>02/03/2018 16:27:13</publishTime>
+      <publishTime>03/03/2017 16:32:40</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/EquipmentInfo.js">
-      <publishTime>02/03/2018 16:27:13</publishTime>
+      <publishTime>06/29/2018 16:27:52</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/monitorjs.js">
-      <publishTime>02/03/2018 16:27:13</publishTime>
+      <publishTime>09/17/2018 11:13:44</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/MonitorShell.js">
-      <publishTime>04/10/2018 08:41:53</publishTime>
+      <publishTime>06/24/2018 12:23:53</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/multiTagChart.js">
-      <publishTime>02/03/2018 16:27:13</publishTime>
+      <publishTime>07/07/2017 14:34:00</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/myDrag.js">
-      <publishTime>02/03/2018 16:27:13</publishTime>
+      <publishTime>05/14/2016 16:02:04</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/RunningState.js">
-      <publishTime>02/03/2018 16:27:13</publishTime>
+      <publishTime>08/01/2017 13:00:11</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/SubMonitorAdapter.js">
-      <publishTime>02/03/2018 16:27:13</publishTime>
+      <publishTime>04/28/2017 11:11:30</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/SumProcessStatistic.js">
-      <publishTime>02/03/2018 16:27:13</publishTime>
+      <publishTime>07/07/2017 14:34:00</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/trendlineAnalysis_monitorView.js">
-      <publishTime>02/03/2018 16:27:13</publishTime>
+      <publishTime>05/14/2016 16:02:04</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/trendlineAnalysis_template.js">
-      <publishTime>02/03/2018 16:27:13</publishTime>
+      <publishTime>05/14/2016 16:02:04</publishTime>
     </File>
     <File Include="UI_Monitor/js/common/trendlineRenderer.js">
-      <publishTime>02/03/2018 16:27:13</publishTime>
+      <publishTime>05/14/2016 16:02:04</publishTime>
     </File>
     <File Include="UI_Monitor/js/page/PowerBar.js">
-      <publishTime>02/03/2018 16:27:13</publishTime>
+      <publishTime>09/02/2016 01:16:02</publishTime>
     </File>
     <File Include="UI_Monitor/js/page/PVFClock.js">
-      <publishTime>02/03/2018 16:27:13</publishTime>
+      <publishTime>07/18/2017 09:59:11</publishTime>
     </File>
     <File Include="UI_Monitor/ProcessEnergyMonitor/MonitorShell/MainMachine.aspx">
       <publishTime>02/03/2018 16:27:12</publishTime>
@@ -5202,6 +5202,9 @@
     </File>
     <File Include="UI_Monitor/ProcessEnergyMonitor/MonitorShell/WebForm1.aspx">
       <publishTime>02/03/2018 16:27:12</publishTime>
+    </File>
+    <File Include="UI_Monitor/ProcessEnergyMonitor/zc_nxjc_byc_byf/test.aspx">
+      <publishTime>09/13/2018 23:16:07</publishTime>
     </File>
     <File Include="UI_Monitor/ProcessEnergyMonitor/zc_nxjc_byc_byf/zc_nxjc_byc_byf_cementmill01.aspx">
       <publishTime>03/27/2017 09:18:11</publishTime>
@@ -5273,7 +5276,7 @@
       <publishTime>04/08/2018 11:45:33</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/02/2018 14:15:40</publishTime>
+      <publishTime>09/17/2018 11:19:41</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -703,10 +703,10 @@
   </wsdl:binding>
   <wsdl:service name="RealTimeData">
     <wsdl:port name="RealTimeDataSoap" binding="tns:RealTimeDataSoap">
-      <soap:address location="http://192.168.101.212/WebService/RealTimeData.asmx" />
+      <soap:address location="http://hengtech03.imwork.net/WebService/RealTimeData.asmx" />
     </wsdl:port>
     <wsdl:port name="RealTimeDataSoap12" binding="tns:RealTimeDataSoap12">
-      <soap12:address location="http://192.168.101.212/WebService/RealTimeData.asmx" />
+      <soap12:address location="http://hengtech03.imwork.net/WebService/RealTimeData.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

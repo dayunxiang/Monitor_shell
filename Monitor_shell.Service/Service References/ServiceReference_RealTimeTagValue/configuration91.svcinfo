@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="fU6uj094J7o96dh7KGpAefO3D3M=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="YAHGQBsh4hbuhTEn1vbzO67eTrM=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="RealTimeDataSoap">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="RealTimeDataSoap" contract="ServiceReference_RealTimeTagValue.RealTimeDataSoap" bindingType="basicHttpBinding" address="http://192.168.101.212/WebService/RealTimeData.asmx" bindingConfiguration="RealTimeDataSoap">
+    <endpoint name="RealTimeDataSoap" contract="ServiceReference_RealTimeTagValue.RealTimeDataSoap" bindingType="basicHttpBinding" address="http://hengtech03.imwork.net/WebService/RealTimeData.asmx" bindingConfiguration="RealTimeDataSoap">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://192.168.101.212/WebService/RealTimeData.asmx</serializedValue>
+          <serializedValue>http://hengtech03.imwork.net/WebService/RealTimeData.asmx</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

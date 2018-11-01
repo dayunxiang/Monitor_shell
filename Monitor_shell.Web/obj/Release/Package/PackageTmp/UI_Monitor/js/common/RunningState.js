@@ -63,74 +63,79 @@ function textInnationNew(Time)
             var AmmaterTime = Time.d[x];
 
         }
-        else {
+        else
+        {
             var RunningTime = Time.d[x];
         }
-    }
-    var dt = new Date(RunningTime.replace(/-/g, "/"));
-    var dr = new Date(AmmaterTime.replace(/-/g, "/"));
-    var dataTime = new Date();
-    var s = dr.getMonth() + 1;
-    if (s < 10) {
-        s = '0' + s;
-    }
-    var day = dr.getDate();
-    var hours = dr.getHours();
-    var minutes = dr.getMinutes();
-    var seconds = dr.getSeconds();
-    if (dr.getDate() < 10) {
-        day = '0' + dr.getDate();
-    }
-    if (dr.getHours() < 10) {
-        var hours = '0' + dr.getHours();
-    }
-    if (dr.getMinutes() < 10) {
-        var minutes = '0' + dr.getMinutes();
-    }
-    if (dr.getSeconds() < 10) {
-        var seconds = '0' + dr.getSeconds();
-    }
-    AmmaterTime = dr.getFullYear() + "-" + s + "-" + day + " " + hours + ":"
-     + minutes + ":" + seconds;
-    var m = dataTime.getMonth() + 1;
-    var t = dataTime.getFullYear() + "-" + m + "-" + dataTime.getDate() + " " + dataTime.getHours() + ":"
-     + dataTime.getMinutes() + ":" + dataTime.getSeconds();
-    var ds = new Date(t.replace(/-/g, "/"));
-    var numNew = (ds - dr) / (1000 * 60);
-    var num = (ds - dt) / (1000 * 60);
-    var min = parseInt(Math.ceil(num));
-    var minnew = parseInt(Math.ceil(numNew));
-    var IntminNew = Math.abs(minnew);
-    var Intmin = Math.abs(min);
-    if (Intmin > 20 && IntminNew > 20) {
-        var textNode = $("#EnergyTextGround");
-        var colorControl = document.getElementById("EnergyTextGround");
-        colorControl.style.color = 'red';//控制文字颜色
-        textNode.text("");//清空文字
-        textNode.append("电表数据无刷新: ");//控制文字内容
-        textNode.append(AmmaterTime);
-        textNode.append("运行信号无刷新: ");
-        textNode.append(RunningTime);
-    }
-    else if (IntminNew > 20) {
-        var textNode = $("#EnergyTextGround");
-        var colorControl = document.getElementById("EnergyTextGround");
-        colorControl.style.color = 'red';//控制文字颜色
-        textNode.text("");//清空文字
-        textNode.append("电表数据无刷新: ");//控制文字内容
-        textNode.append(AmmaterTime);
-    }
-    else if (Intmin > 20) {
-        var textNodeDcs = $("#EnergyTextGround");
-        var colorControlDcs = document.getElementById("EnergyTextGround");
-        colorControlDcs.style.color = 'red';//控制文字颜色
-        textNodeDcs.text("");//清空文字
-        textNodeDcs.append("运行信号无刷新: ");//控制文字内容
-        textNodeDcs.append(RunningTime);
-    }
-    else {
-        textNode.text("");//清空文字
-    }
+        }
+        var dt = new Date(RunningTime.replace(/-/g, "/"));
+        var dr = new Date(AmmaterTime.replace(/-/g, "/"));
+        var dataTime = new Date();
+        var s = dr.getMonth() + 1;
+        if (s < 10)
+        {
+            s = '0' + s;
+        }
+        var day = dr.getDate();
+        var hours = dr.getHours();
+        var minutes = dr.getMinutes();
+        var seconds = dr.getSeconds();
+        if (dr.getDate() < 10)
+        {
+             day = '0' + dr.getDate();
+        }
+        if (dr.getHours() < 10)
+        {
+            var hours = '0' + dr.getHours();
+        }
+        if (dr.getMinutes() < 10) {
+            var minutes = '0' + dr.getMinutes();
+        }
+        if (dr.getSeconds() < 10) {
+            var seconds = '0' + dr.getSeconds();
+        }
+        AmmaterTime = dr.getFullYear() + "-" + s + "-" + day + " " + hours + ":"
+         + minutes + ":" + seconds;
+        var m = dataTime.getMonth() + 1;
+        var t = dataTime.getFullYear() + "-" + m + "-" + dataTime.getDate() + " " + dataTime.getHours() + ":"
+         + dataTime.getMinutes() + ":" + dataTime.getSeconds();
+        var ds = new Date(t.replace(/-/g, "/"));
+        var numNew = (ds - dr) / (1000 * 60);
+        var num = (ds - dt) / (1000 * 60);
+        var min = parseInt(Math.ceil(num));
+        var minnew = parseInt(Math.ceil(numNew));
+        var IntminNew = Math.abs(minnew);
+        var Intmin = Math.abs(min);
+        if (Intmin > 20 && IntminNew > 20) {
+            var textNode = $("#EnergyTextGround");
+            var colorControl = document.getElementById("EnergyTextGround");
+            colorControl.style.color = 'red';//控制文字颜色
+            textNode.text("");//清空文字
+            textNode.append("电表数据无刷新: ");//控制文字内容
+            textNode.append(AmmaterTime);
+            textNode.append("运行信号无刷新: ");
+            textNode.append(RunningTime);
+        }
+       else if (IntminNew > 20) {
+            var textNode = $("#EnergyTextGround");
+            var colorControl = document.getElementById("EnergyTextGround");
+            colorControl.style.color = 'red';//控制文字颜色
+            textNode.text("");//清空文字
+            textNode.append("电表数据无刷新: ");//控制文字内容
+            textNode.append(AmmaterTime);
+        }
+        else if (Intmin > 20) {
+            var textNodeDcs = $("#EnergyTextGround");
+            var colorControlDcs = document.getElementById("EnergyTextGround");
+            colorControlDcs.style.color = 'red';//控制文字颜色
+            textNodeDcs.text("");//清空文字
+            textNodeDcs.append("运行信号无刷新: ");//控制文字内容
+            textNodeDcs.append(RunningTime);
+        }
+        else
+        {
+            textNode.text("");//清空文字
+        }
 }
 function runningStateserviceSuccessful(resultObject) {
     runningStateAddImage(resultObject.d.DataSet);

@@ -139,7 +139,9 @@ namespace Monitor_shell.Service.TrendTool
             }
                     
             SqlParameter[] parameters = { new SqlParameter("startTime", startTime), new SqlParameter("stopTime", stopTime) };
-            dt=dataFactory.Query(string.Format(mySql,fieldBuilder.ToString(),tableBuilder.ToString(),innerBuilder.ToString(),tableList[0]),parameters);
+
+            string m_SqlTemp = string.Format(mySql,fieldBuilder.ToString(),tableBuilder.ToString(),innerBuilder.ToString(),tableList[0]);
+            dt = dataFactory.Query(m_SqlTemp, parameters);
             
             DataColumn resultColumn = new DataColumn("Result", typeof(int));
             dt.Columns.Add(resultColumn);

@@ -45,6 +45,33 @@ namespace Monitor_shell.Service.TrendTool
                             and C.VariableId = '{1}' ) M on A.OrganizationID = M.OrganizationID
                             where A.OrganizationID = '{0}'";
             }
+            else if (m_Type == "WaterFlowRate")
+            {
+                string m_DbName = "";
+                string m_DbNameSql = @"select B.MeterDatabase from system_Organization A, system_Database B
+                                            where A.OrganizationID = '{0}'
+                                            and A.DataBaseID = B.DataBaseID";
+                try
+                {
+                    m_DbNameSql = string.Format(m_DbNameSql, m_OrganizationId);
+                    DataTable m_DbNameTable = _dataFactory.Query(m_DbNameSql);
+                    if (m_DbNameTable != null && m_DbNameTable.Rows.Count > 0)
+                    {
+                        m_DbName = m_DbNameTable.Rows[0]["MeterDatabase"] != DBNull.Value ? m_DbNameTable.Rows[0]["MeterDatabase"].ToString() : "";
+                    }
+                }
+                catch
+                {
+
+                }
+                if (m_DbName != "")
+                {
+                    m_Sql = @"select top 1 WaterMeterName + '{2}' as Name
+                                      from " + m_DbName + @".dbo.WaterMeterContrast
+                                      where WaterMeterNumber = '{1}'
+                                      and OrganizationID = '{0}'";
+                }
+            }
             else                   //获得电量相关的名字
             {
                 m_Sql = @"Select A.Name + (case when M.Name is null then '' else M.Name + '{2}' end) as Name from system_Organization A
@@ -60,19 +87,19 @@ namespace Monitor_shell.Service.TrendTool
             try
             {
                 string m_LineType = "";
-                if(m_Type == "ElectricityQuantity")
+                if (m_Type == "ElectricityQuantity")
                 {
                     m_LineType = "电量";
                 }
-                else if(m_Type == "Power")
+                else if (m_Type == "Power")
                 {
                     m_LineType = "功率";
                 }
-                else if(m_Type == "CoalConsumption")
+                else if (m_Type == "CoalConsumption")
                 {
                     m_LineType = "煤耗";
                 }
-                else if(m_Type == "ElectricityConsumption")
+                else if (m_Type == "ElectricityConsumption")
                 {
                     m_LineType = "电耗";
                 }
@@ -80,11 +107,18 @@ namespace Monitor_shell.Service.TrendTool
                 {
                     m_LineType = "电流";
                 }
-                m_Sql = string.Format(m_Sql, m_OrganizationId, m_VariableId, m_LineType);
-                DataTable m_LineNameTable = _dataFactory.Query(m_Sql);
-                if (m_LineNameTable != null && m_LineNameTable.Rows.Count > 0)
+                else if (m_Type == "WaterFlowRate")
                 {
-                    m_TrendLineName = m_LineNameTable.Rows[0]["Name"].ToString();
+                    m_LineType = "瞬时流量";
+                }
+                if (m_Sql != "")
+                {
+                    m_Sql = string.Format(m_Sql, m_OrganizationId, m_VariableId, m_LineType);
+                    DataTable m_LineNameTable = _dataFactory.Query(m_Sql);
+                    if (m_LineNameTable != null && m_LineNameTable.Rows.Count > 0)
+                    {
+                        m_TrendLineName = m_LineNameTable.Rows[0]["Name"].ToString();
+                    }
                 }
                 return m_TrendLineName;
             }

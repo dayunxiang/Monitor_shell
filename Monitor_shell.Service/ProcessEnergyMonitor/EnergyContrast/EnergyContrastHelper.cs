@@ -49,10 +49,10 @@ namespace Monitor_shell.Service.ProcessEnergyMonitor.EnergyContrast
                 //DebugHelper.TestStart();
             }
             //此模块是修改能源监控数据中读取DCS实时表改为从WebService获取。
-            ISqlServerDataFactory m_dataFactory = new SqlServerDataFactory(ammeterConn);
+            ISqlServerDataFactory m_dataFactory = new SqlServerDataFactory(ConnectionStringFactory.NXJCConnectionString);
             string m_FactoryOrganizationId = GetFactoryOrganizationId(organizationId, m_dataFactory);
-            Dictionary<string, string> m_BooleanTags = GetTags(organizationId, variableNames, "Current", "bit", m_dataFactory);
-            Dictionary<string, string> m_AnalogTags = GetTags(organizationId, variableNames, "Current", "real", m_dataFactory);
+            Dictionary<string, string> m_BooleanTags = GetTags(organizationId, variableNames, "Current", "bit", _dataFactory);
+            Dictionary<string, string> m_AnalogTags = GetTags(organizationId, variableNames, "Current", "real", _dataFactory);
             Dictionary<string, bool> m_BooleanResult = GetBooleanResult(m_FactoryOrganizationId, m_BooleanTags.Values.ToArray());
             Dictionary<string, decimal> m_AnalogResult = GetAnalogResult(m_FactoryOrganizationId, m_AnalogTags.Values.ToArray());
             DataTable m_DCSValueTable = GetResultTable(m_BooleanTags, m_AnalogTags, m_BooleanResult, m_AnalogResult);

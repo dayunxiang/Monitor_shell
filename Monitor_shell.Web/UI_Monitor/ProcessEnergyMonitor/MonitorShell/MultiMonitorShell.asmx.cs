@@ -168,6 +168,22 @@ namespace Monitor_shell.Web.UI_Monitor.ProcessEnergyMonitor.MonitorShell
                             idDictionary[key].Add(itemArry[1]);
                         }
                     }
+                    //增加通过通信采集水流量的显示
+                    else if (itemArry[2] == "WaterFlowRate")
+                    {
+                        string providerType = "WaterFlowRate";
+                        string key = itemArry[0] + "," + providerType;
+
+                        if (!idDictionary.Keys.Contains(key))
+                        {
+                            idDictionary.Add(key, new List<string>());
+                            idDictionary[key].Add(itemArry[1]);
+                        }
+                        else
+                        {
+                            idDictionary[key].Add(itemArry[1]);
+                        }
+                    }
                     //如果为DCS标签
                     else if ( itemArry[2] == "DCS" || itemArry[2] == "BarGraph")
                     {
@@ -314,7 +330,7 @@ namespace Monitor_shell.Web.UI_Monitor.ProcessEnergyMonitor.MonitorShell
             string organization = "";
             Dictionary<string, string> EnergyTime = new Dictionary<string, string>();
             string[] iditems = ids.Split(',');
-            for (int i = 0; i < iditems.Length; i++)
+            for (int i = 0; i < iditems.Length - 1; i++)
             {
                 string[] itemArry = iditems[i].Split('>');
                 organization = itemArry[0];
